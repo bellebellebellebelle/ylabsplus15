@@ -1,0 +1,58 @@
+/* PlanAgenda (imported app): every rule is scoped under .pa-theme or uses pa- prefixed names. */
+.pa-theme {
+  --radius: 1rem;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --background: oklch(0.24 0.09 306);
+  --foreground: oklch(0.97 0.02 90);
+  --surface: oklch(0.29 0.08 306 / 0.7);
+  --surface-2: oklch(0.32 0.09 305 / 0.55);
+  --card: oklch(0.28 0.08 306 / 0.75);
+  --card-foreground: oklch(0.97 0.02 90);
+  --popover: oklch(0.24 0.09 306);
+  --popover-foreground: oklch(0.97 0.02 90);
+  --holo: oklch(0.96 0.04 92);
+  --holo-2: oklch(0.73 0.19 165);
+  --holo-3: oklch(0.88 0.19 168);
+  --primary: oklch(0.73 0.19 165);
+  --primary-foreground: oklch(0.15 0.06 306);
+  --secondary: oklch(0.35 0.08 306);
+  --secondary-foreground: oklch(0.97 0.02 90);
+  --muted: oklch(0.32 0.06 306);
+  --muted-foreground: oklch(0.78 0.03 90);
+  --accent: oklch(0.42 0.12 300);
+  --accent-foreground: oklch(0.97 0.02 90);
+  --destructive: oklch(0.66 0.23 20);
+  --destructive-foreground: oklch(0.98 0.02 90);
+  --border: oklch(1 0 0 / 0.09);
+  --input: oklch(1 0 0 / 0.14);
+  --ring: oklch(0.73 0.19 165);
+  --color-holo: var(--holo);
+  --color-holo-2: var(--holo-2);
+  --color-holo-3: var(--holo-3);
+  --pa-shadow-postit: 0 24px 48px -18px rgba(0,0,0,.55), 0 2px 0 0 rgba(255,255,255,.08) inset;
+  color-scheme: dark;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+div.pa-theme {
+  min-height: 100vh;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% 0%, color-mix(in oklab, var(--holo-2) 22%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, color-mix(in oklab, var(--holo) 12%, transparent), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, color-mix(in oklab, var(--holo-3) 12%, transparent), transparent 70%);
+  background-attachment: fixed;
+}
+.pa-theme * { border-color: var(--border); }
+.pa-theme h1, .pa-theme h2, .pa-theme h3, .pa-theme h4, .pa-theme .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+
+.pa-glass { background: color-mix(in oklab, var(--surface) 80%, transparent); backdrop-filter: blur(24px) saturate(160%); border: 1px solid color-mix(in oklab, white 10%, transparent); }
+.pa-glass-strong { background: color-mix(in oklab, var(--surface-2) 92%, transparent); backdrop-filter: blur(30px) saturate(180%); border: 1px solid color-mix(in oklab, white 14%, transparent); }
+.pa-holo-text { background: linear-gradient(135deg, var(--holo) 0%, var(--holo-2) 55%, var(--holo-3) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pa-bento { border-radius: calc(var(--radius) + 8px); background: color-mix(in oklab, var(--surface) 85%, transparent); backdrop-filter: blur(28px) saturate(160%); border: 1px solid color-mix(in oklab, white 10%, transparent); box-shadow: 0 30px 80px -40px rgba(0,0,0,.65); }
+.pa-postit { background: linear-gradient(160deg, color-mix(in oklab, var(--holo) 92%, transparent), color-mix(in oklab, var(--holo) 78%, transparent)); color: oklch(0.18 0.06 306); border-radius: 14px; box-shadow: var(--pa-shadow-postit); border: 1px solid rgba(255,255,255,0.35); }
+.pa-scroll-slim { scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--holo-2) 40%, transparent) transparent; }
+.pa-holo-glow { box-shadow: 0 0 40px -8px color-mix(in oklab, var(--holo-2) 55%, transparent); }
+@keyframes pa-holo-pulse { 0%,100% { opacity: .55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+.pa-animate-holo-pulse { animation: pa-holo-pulse 2.4s ease-in-out infinite; }

@@ -10,33 +10,1500 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SkyJournalRouteImport } from './routes/sky-journal'
+import { Route as TepRouteImport } from './routes/tep'
+import { Route as AuthenticatedMemotrackRouteImport } from './routes/_authenticated/_memotrack'
+import { Route as AuthenticatedAngeloRouteImport } from './routes/_authenticated/angelo'
+import { Route as AuthenticatedAppsRouteImport } from './routes/_authenticated/apps'
+import { Route as AuthenticatedCrmRouteRouteImport } from './routes/_authenticated/crm/route'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedHistoryRouteImport } from './routes/_authenticated/history'
+import { Route as AuthenticatedIdeasRouteImport } from './routes/_authenticated/ideas'
+import { Route as AuthenticatedMmRouteImport } from './routes/_authenticated/mm'
+import { Route as AuthenticatedNojectRouteRouteImport } from './routes/_authenticated/noject/route'
+import { Route as AuthenticatedOcktavusRouteRouteImport } from './routes/_authenticated/ocktavus/route'
+import { Route as AuthenticatedPlanningRouteImport } from './routes/_authenticated/planning'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedSkytaskRouteImport } from './routes/_authenticated/skytask'
+import { Route as AuthenticatedSmartteamsRouteImport } from './routes/_authenticated/smartteams'
+import { Route as ApiAnalyzeRouteImport } from './routes/api/analyze'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as CalendskyIndexRouteImport } from './routes/calendsky.index'
+import { Route as CalendskyPlanningRouteImport } from './routes/calendsky.planning'
+import { Route as STokenRouteImport } from './routes/s.$token'
+import { Route as SkyIndexRouteImport } from './routes/sky.index'
+import { Route as SkyAppsRouteImport } from './routes/sky.apps'
+import { Route as SkydocIndexRouteImport } from './routes/skydoc.index'
+import { Route as SkydocDashboardRouteImport } from './routes/skydoc.dashboard'
+import { Route as SkytabIndexRouteImport } from './routes/skytab.index'
+import { Route as SkytabDashboardRouteImport } from './routes/skytab.dashboard'
+import { Route as TaskyIndexRouteImport } from './routes/tasky.index'
+import { Route as TepIndexRouteImport } from './routes/tep/index'
+import { Route as TepTepauthRouteImport } from './routes/tep/_tepauth'
+import { Route as TepPostitRouteImport } from './routes/tep/postit'
+import { Route as AuthenticatedMemotrackMemotrackRouteImport } from './routes/_authenticated/_memotrack/memotrack'
+import { Route as AuthenticatedAngeloIndexRouteImport } from './routes/_authenticated/angelo/index'
+import { Route as AuthenticatedAngeloConnexionOdooRouteImport } from './routes/_authenticated/angelo/connexion-odoo'
+import { Route as AuthenticatedAngeloFacturesRouteImport } from './routes/_authenticated/angelo/factures'
+import { Route as AuthenticatedAngeloJournalRouteImport } from './routes/_authenticated/angelo/journal'
+import { Route as AuthenticatedAngeloParametresRouteImport } from './routes/_authenticated/angelo/parametres'
+import { Route as AuthenticatedAngeloTableauDeBordRouteImport } from './routes/_authenticated/angelo/tableau-de-bord'
+import { Route as AuthenticatedCrmIndexRouteImport } from './routes/_authenticated/crm/index'
+import { Route as AuthenticatedCrmActivitiesRouteImport } from './routes/_authenticated/crm/activities'
+import { Route as AuthenticatedCrmDashboardRouteImport } from './routes/_authenticated/crm/dashboard'
+import { Route as AuthenticatedCrmSettingsRouteImport } from './routes/_authenticated/crm/settings'
+import { Route as AuthenticatedCrmTargetDayRouteImport } from './routes/_authenticated/crm/target-day'
+import { Route as AuthenticatedMmIndexRouteImport } from './routes/_authenticated/mm/index'
+import { Route as AuthenticatedMmCockpitRouteImport } from './routes/_authenticated/mm/cockpit'
+import { Route as AuthenticatedMmConnectionsRouteImport } from './routes/_authenticated/mm/connections'
+import { Route as AuthenticatedMmCostsRouteImport } from './routes/_authenticated/mm/costs'
+import { Route as AuthenticatedMmHelpyRouteImport } from './routes/_authenticated/mm/helpy'
+import { Route as AuthenticatedMmKpiRouteImport } from './routes/_authenticated/mm/kpi'
+import { Route as AuthenticatedMmOptimizerRouteImport } from './routes/_authenticated/mm/optimizer'
+import { Route as AuthenticatedMmPreferencesRouteImport } from './routes/_authenticated/mm/preferences'
+import { Route as AuthenticatedMmTicksRouteImport } from './routes/_authenticated/mm/ticks'
+import { Route as AuthenticatedMmToolsRouteImport } from './routes/_authenticated/mm/tools'
+import { Route as AuthenticatedNojectIndexRouteImport } from './routes/_authenticated/noject/index'
+import { Route as AuthenticatedNojectCalendarRouteImport } from './routes/_authenticated/noject/calendar'
+import { Route as AuthenticatedNojectDashboardRouteImport } from './routes/_authenticated/noject/dashboard'
+import { Route as AuthenticatedNojectPortfolioRouteImport } from './routes/_authenticated/noject/portfolio'
+import { Route as AuthenticatedNojectSettingsRouteImport } from './routes/_authenticated/noject/settings'
+import { Route as AuthenticatedOcktavusIndexRouteImport } from './routes/_authenticated/ocktavus/index'
+import { Route as AuthenticatedOcktavusAgentRouteImport } from './routes/_authenticated/ocktavus/agent'
+import { Route as AuthenticatedOcktavusBloggerRouteImport } from './routes/_authenticated/ocktavus/blogger'
+import { Route as AuthenticatedOcktavusCalendarRouteImport } from './routes/_authenticated/ocktavus/calendar'
+import { Route as AuthenticatedOcktavusConnexionsRouteImport } from './routes/_authenticated/ocktavus/connexions'
+import { Route as AuthenticatedOcktavusContactsRouteImport } from './routes/_authenticated/ocktavus/contacts'
+import { Route as AuthenticatedOcktavusDocsRouteImport } from './routes/_authenticated/ocktavus/docs'
+import { Route as AuthenticatedOcktavusDriveRouteImport } from './routes/_authenticated/ocktavus/drive'
+import { Route as AuthenticatedOcktavusFormsRouteImport } from './routes/_authenticated/ocktavus/forms'
+import { Route as AuthenticatedOcktavusGmailRouteImport } from './routes/_authenticated/ocktavus/gmail'
+import { Route as AuthenticatedOcktavusJournalRouteImport } from './routes/_authenticated/ocktavus/journal'
+import { Route as AuthenticatedOcktavusReglagesRouteImport } from './routes/_authenticated/ocktavus/reglages'
+import { Route as AuthenticatedOcktavusSheetsRouteImport } from './routes/_authenticated/ocktavus/sheets'
+import { Route as AuthenticatedOcktavusSlidesRouteImport } from './routes/_authenticated/ocktavus/slides'
+import { Route as AuthenticatedOcktavusTasksRouteImport } from './routes/_authenticated/ocktavus/tasks'
+import { Route as AuthenticatedSendyIndexRouteImport } from './routes/_authenticated/sendy.index'
+import { Route as AuthenticatedSendySettingsRouteImport } from './routes/_authenticated/sendy.settings'
+import { Route as AuthenticatedSkyCloudRouteImport } from './routes/_authenticated/sky.cloud'
+import { Route as ApiGoogleCallbackRouteImport } from './routes/api/google/callback'
+import { Route as ApiPublicGoogleChatRouteImport } from './routes/api/public/google-chat'
+import { Route as SkydocDocIdRouteImport } from './routes/skydoc.doc.$id'
+import { Route as SkytabProjetIdRouteImport } from './routes/skytab.projet.$id'
+import { Route as TepTepauthEquipesRouteImport } from './routes/tep/_tepauth/equipes'
+import { Route as TepTepauthProblemeRouteImport } from './routes/tep/_tepauth/probleme'
+import { Route as TepTepauthProspectionRouteImport } from './routes/tep/_tepauth/prospection'
+import { Route as TepTepauthRecrutementRouteImport } from './routes/tep/_tepauth/recrutement'
+import { Route as TepPlanificationIndexRouteImport } from './routes/tep/planification.index'
+import { Route as TepProjetsProjectIdRouteImport } from './routes/tep/projets.$projectId'
+import { Route as TepTableauIndexRouteImport } from './routes/tep/tableau.index'
+import { Route as TepTableauBoardIdRouteImport } from './routes/tep/tableau.$boardId'
+import { Route as AuthenticatedMemotrackMemoIdRouteImport } from './routes/_authenticated/_memotrack/memo.$id'
+import { Route as AuthenticatedCrmOpportunitiesIndexRouteImport } from './routes/_authenticated/crm/opportunities/index'
+import { Route as AuthenticatedCrmOpportunitiesIdRouteImport } from './routes/_authenticated/crm/opportunities/$id'
+import { Route as AuthenticatedMmAutomationsIndexRouteImport } from './routes/_authenticated/mm/automations/index'
+import { Route as AuthenticatedMmAutomationsIdRouteImport } from './routes/_authenticated/mm/automations/$id'
+import { Route as AuthenticatedMmAutomationsNewRouteImport } from './routes/_authenticated/mm/automations/new'
+import { Route as AuthenticatedMmExecutionsIndexRouteImport } from './routes/_authenticated/mm/executions/index'
+import { Route as AuthenticatedMmExecutionsIdRouteImport } from './routes/_authenticated/mm/executions/$id'
+import { Route as AuthenticatedNojectProjectsIndexRouteImport } from './routes/_authenticated/noject/projects.index'
+import { Route as AuthenticatedNojectProjectsProjectIdRouteImport } from './routes/_authenticated/noject/projects.$projectId'
+import { Route as AuthenticatedOcktavusAgentIndexRouteImport } from './routes/_authenticated/ocktavus/agent.index'
+import { Route as AuthenticatedOcktavusAgentConversationIdRouteImport } from './routes/_authenticated/ocktavus/agent.$conversationId'
+import { Route as AuthenticatedOcktavusChatThreadIdRouteImport } from './routes/_authenticated/ocktavus/chat.$threadId'
+import { Route as ApiPublicCrmMailgunInboundRouteImport } from './routes/api/public/crm-mailgun/inbound'
+import { Route as ApiPublicGoogleCallbackRouteImport } from './routes/api/public/google.callback'
+import { Route as ApiPublicHooksAngeloCronRouteImport } from './routes/api/public/hooks/angelo-cron'
+import { Route as ApiPublicHooksTickRouteImport } from './routes/api/public/hooks/tick'
+import { Route as ApiPublicMailgunMimeRouteImport } from './routes/api/public/mailgun/mime'
+import { Route as ApiPublicPaGoogleCallbackRouteImport } from './routes/api/public/pa-google/callback'
+import { Route as ApiPublicPlanningGoogleCallbackRouteImport } from './routes/api/public/planning-google/callback'
+import { Route as ApiPublicSharedFileTokenRouteImport } from './routes/api/public/shared-file/$token'
+import { Route as ApiPublicTepGoogleCallbackRouteImport } from './routes/api/public/tep-google/callback'
+import { Route as TepTepauthContenuIndexRouteImport } from './routes/tep/_tepauth/contenu.index'
+import { Route as TepTepauthContenuCalendrierRouteImport } from './routes/tep/_tepauth/contenu.calendrier'
+import { Route as TepTepauthContenuMarqueRouteImport } from './routes/tep/_tepauth/contenu.marque'
+import { Route as TepPlanificationJourDateRouteImport } from './routes/tep/planification.jour.$date'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkyJournalRoute = SkyJournalRouteImport.update({
+  id: '/sky-journal',
+  path: '/sky-journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TepRoute = TepRouteImport.update({
+  id: '/tep',
+  path: '/tep',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedMemotrackRoute = AuthenticatedMemotrackRouteImport.update({
+  id: '/_memotrack',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAngeloRoute = AuthenticatedAngeloRouteImport.update({
+  id: '/angelo',
+  path: '/angelo',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAppsRoute = AuthenticatedAppsRouteImport.update({
+  id: '/apps',
+  path: '/apps',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCrmRouteRoute = AuthenticatedCrmRouteRouteImport.update({
+  id: '/crm',
+  path: '/crm',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHistoryRoute = AuthenticatedHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedIdeasRoute = AuthenticatedIdeasRouteImport.update({
+  id: '/ideas',
+  path: '/ideas',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMmRoute = AuthenticatedMmRouteImport.update({
+  id: '/mm',
+  path: '/mm',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNojectRouteRoute =
+  AuthenticatedNojectRouteRouteImport.update({
+    id: '/noject',
+    path: '/noject',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOcktavusRouteRoute =
+  AuthenticatedOcktavusRouteRouteImport.update({
+    id: '/ocktavus',
+    path: '/ocktavus',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPlanningRoute = AuthenticatedPlanningRouteImport.update({
+  id: '/planning',
+  path: '/planning',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSkytaskRoute = AuthenticatedSkytaskRouteImport.update({
+  id: '/skytask',
+  path: '/skytask',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSmartteamsRoute = AuthenticatedSmartteamsRouteImport.update({
+  id: '/smartteams',
+  path: '/smartteams',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiAnalyzeRoute = ApiAnalyzeRouteImport.update({
+  id: '/api/analyze',
+  path: '/api/analyze',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendskyIndexRoute = CalendskyIndexRouteImport.update({
+  id: '/calendsky/',
+  path: '/calendsky/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalendskyPlanningRoute = CalendskyPlanningRouteImport.update({
+  id: '/calendsky/planning',
+  path: '/calendsky/planning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const STokenRoute = STokenRouteImport.update({
+  id: '/s/$token',
+  path: '/s/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkyIndexRoute = SkyIndexRouteImport.update({
+  id: '/sky/',
+  path: '/sky/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkyAppsRoute = SkyAppsRouteImport.update({
+  id: '/sky/apps',
+  path: '/sky/apps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkydocIndexRoute = SkydocIndexRouteImport.update({
+  id: '/skydoc/',
+  path: '/skydoc/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkydocDashboardRoute = SkydocDashboardRouteImport.update({
+  id: '/skydoc/dashboard',
+  path: '/skydoc/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkytabIndexRoute = SkytabIndexRouteImport.update({
+  id: '/skytab/',
+  path: '/skytab/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkytabDashboardRoute = SkytabDashboardRouteImport.update({
+  id: '/skytab/dashboard',
+  path: '/skytab/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaskyIndexRoute = TaskyIndexRouteImport.update({
+  id: '/tasky/',
+  path: '/tasky/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TepIndexRoute = TepIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TepRoute,
+} as any)
+const TepTepauthRoute = TepTepauthRouteImport.update({
+  id: '/_tepauth',
+  getParentRoute: () => TepRoute,
+} as any)
+const TepPostitRoute = TepPostitRouteImport.update({
+  id: '/postit',
+  path: '/postit',
+  getParentRoute: () => TepRoute,
+} as any)
+const AuthenticatedMemotrackMemotrackRoute =
+  AuthenticatedMemotrackMemotrackRouteImport.update({
+    id: '/memotrack',
+    path: '/memotrack',
+    getParentRoute: () => AuthenticatedMemotrackRoute,
+  } as any)
+const AuthenticatedAngeloIndexRoute =
+  AuthenticatedAngeloIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedAngeloConnexionOdooRoute =
+  AuthenticatedAngeloConnexionOdooRouteImport.update({
+    id: '/connexion-odoo',
+    path: '/connexion-odoo',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedAngeloFacturesRoute =
+  AuthenticatedAngeloFacturesRouteImport.update({
+    id: '/factures',
+    path: '/factures',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedAngeloJournalRoute =
+  AuthenticatedAngeloJournalRouteImport.update({
+    id: '/journal',
+    path: '/journal',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedAngeloParametresRoute =
+  AuthenticatedAngeloParametresRouteImport.update({
+    id: '/parametres',
+    path: '/parametres',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedAngeloTableauDeBordRoute =
+  AuthenticatedAngeloTableauDeBordRouteImport.update({
+    id: '/tableau-de-bord',
+    path: '/tableau-de-bord',
+    getParentRoute: () => AuthenticatedAngeloRoute,
+  } as any)
+const AuthenticatedCrmIndexRoute = AuthenticatedCrmIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedCrmRouteRoute,
+} as any)
+const AuthenticatedCrmActivitiesRoute =
+  AuthenticatedCrmActivitiesRouteImport.update({
+    id: '/activities',
+    path: '/activities',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedCrmDashboardRoute =
+  AuthenticatedCrmDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedCrmSettingsRoute =
+  AuthenticatedCrmSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedCrmTargetDayRoute =
+  AuthenticatedCrmTargetDayRouteImport.update({
+    id: '/target-day',
+    path: '/target-day',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedMmIndexRoute = AuthenticatedMmIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmCockpitRoute = AuthenticatedMmCockpitRouteImport.update({
+  id: '/cockpit',
+  path: '/cockpit',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmConnectionsRoute =
+  AuthenticatedMmConnectionsRouteImport.update({
+    id: '/connections',
+    path: '/connections',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmCostsRoute = AuthenticatedMmCostsRouteImport.update({
+  id: '/costs',
+  path: '/costs',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmHelpyRoute = AuthenticatedMmHelpyRouteImport.update({
+  id: '/helpy',
+  path: '/helpy',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmKpiRoute = AuthenticatedMmKpiRouteImport.update({
+  id: '/kpi',
+  path: '/kpi',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmOptimizerRoute =
+  AuthenticatedMmOptimizerRouteImport.update({
+    id: '/optimizer',
+    path: '/optimizer',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmPreferencesRoute =
+  AuthenticatedMmPreferencesRouteImport.update({
+    id: '/preferences',
+    path: '/preferences',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmTicksRoute = AuthenticatedMmTicksRouteImport.update({
+  id: '/ticks',
+  path: '/ticks',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedMmToolsRoute = AuthenticatedMmToolsRouteImport.update({
+  id: '/tools',
+  path: '/tools',
+  getParentRoute: () => AuthenticatedMmRoute,
+} as any)
+const AuthenticatedNojectIndexRoute =
+  AuthenticatedNojectIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedNojectCalendarRoute =
+  AuthenticatedNojectCalendarRouteImport.update({
+    id: '/calendar',
+    path: '/calendar',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedNojectDashboardRoute =
+  AuthenticatedNojectDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedNojectPortfolioRoute =
+  AuthenticatedNojectPortfolioRouteImport.update({
+    id: '/portfolio',
+    path: '/portfolio',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedNojectSettingsRoute =
+  AuthenticatedNojectSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedOcktavusIndexRoute =
+  AuthenticatedOcktavusIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusAgentRoute =
+  AuthenticatedOcktavusAgentRouteImport.update({
+    id: '/agent',
+    path: '/agent',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusBloggerRoute =
+  AuthenticatedOcktavusBloggerRouteImport.update({
+    id: '/blogger',
+    path: '/blogger',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusCalendarRoute =
+  AuthenticatedOcktavusCalendarRouteImport.update({
+    id: '/calendar',
+    path: '/calendar',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusConnexionsRoute =
+  AuthenticatedOcktavusConnexionsRouteImport.update({
+    id: '/connexions',
+    path: '/connexions',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusContactsRoute =
+  AuthenticatedOcktavusContactsRouteImport.update({
+    id: '/contacts',
+    path: '/contacts',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusDocsRoute =
+  AuthenticatedOcktavusDocsRouteImport.update({
+    id: '/docs',
+    path: '/docs',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusDriveRoute =
+  AuthenticatedOcktavusDriveRouteImport.update({
+    id: '/drive',
+    path: '/drive',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusFormsRoute =
+  AuthenticatedOcktavusFormsRouteImport.update({
+    id: '/forms',
+    path: '/forms',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusGmailRoute =
+  AuthenticatedOcktavusGmailRouteImport.update({
+    id: '/gmail',
+    path: '/gmail',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusJournalRoute =
+  AuthenticatedOcktavusJournalRouteImport.update({
+    id: '/journal',
+    path: '/journal',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusReglagesRoute =
+  AuthenticatedOcktavusReglagesRouteImport.update({
+    id: '/reglages',
+    path: '/reglages',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusSheetsRoute =
+  AuthenticatedOcktavusSheetsRouteImport.update({
+    id: '/sheets',
+    path: '/sheets',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusSlidesRoute =
+  AuthenticatedOcktavusSlidesRouteImport.update({
+    id: '/slides',
+    path: '/slides',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedOcktavusTasksRoute =
+  AuthenticatedOcktavusTasksRouteImport.update({
+    id: '/tasks',
+    path: '/tasks',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const AuthenticatedSendyIndexRoute = AuthenticatedSendyIndexRouteImport.update({
+  id: '/sendy/',
+  path: '/sendy/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSendySettingsRoute =
+  AuthenticatedSendySettingsRouteImport.update({
+    id: '/sendy/settings',
+    path: '/sendy/settings',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedSkyCloudRoute = AuthenticatedSkyCloudRouteImport.update({
+  id: '/sky/cloud',
+  path: '/sky/cloud',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiGoogleCallbackRoute = ApiGoogleCallbackRouteImport.update({
+  id: '/api/google/callback',
+  path: '/api/google/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicGoogleChatRoute = ApiPublicGoogleChatRouteImport.update({
+  id: '/api/public/google-chat',
+  path: '/api/public/google-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkydocDocIdRoute = SkydocDocIdRouteImport.update({
+  id: '/skydoc/doc/$id',
+  path: '/skydoc/doc/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkytabProjetIdRoute = SkytabProjetIdRouteImport.update({
+  id: '/skytab/projet/$id',
+  path: '/skytab/projet/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TepTepauthEquipesRoute = TepTepauthEquipesRouteImport.update({
+  id: '/equipes',
+  path: '/equipes',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepTepauthProblemeRoute = TepTepauthProblemeRouteImport.update({
+  id: '/probleme',
+  path: '/probleme',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepTepauthProspectionRoute = TepTepauthProspectionRouteImport.update({
+  id: '/prospection',
+  path: '/prospection',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepTepauthRecrutementRoute = TepTepauthRecrutementRouteImport.update({
+  id: '/recrutement',
+  path: '/recrutement',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepPlanificationIndexRoute = TepPlanificationIndexRouteImport.update({
+  id: '/planification/',
+  path: '/planification/',
+  getParentRoute: () => TepRoute,
+} as any)
+const TepProjetsProjectIdRoute = TepProjetsProjectIdRouteImport.update({
+  id: '/projets/$projectId',
+  path: '/projets/$projectId',
+  getParentRoute: () => TepRoute,
+} as any)
+const TepTableauIndexRoute = TepTableauIndexRouteImport.update({
+  id: '/tableau/',
+  path: '/tableau/',
+  getParentRoute: () => TepRoute,
+} as any)
+const TepTableauBoardIdRoute = TepTableauBoardIdRouteImport.update({
+  id: '/tableau/$boardId',
+  path: '/tableau/$boardId',
+  getParentRoute: () => TepRoute,
+} as any)
+const AuthenticatedMemotrackMemoIdRoute =
+  AuthenticatedMemotrackMemoIdRouteImport.update({
+    id: '/memo/$id',
+    path: '/memo/$id',
+    getParentRoute: () => AuthenticatedMemotrackRoute,
+  } as any)
+const AuthenticatedCrmOpportunitiesIndexRoute =
+  AuthenticatedCrmOpportunitiesIndexRouteImport.update({
+    id: '/opportunities/',
+    path: '/opportunities/',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedCrmOpportunitiesIdRoute =
+  AuthenticatedCrmOpportunitiesIdRouteImport.update({
+    id: '/opportunities/$id',
+    path: '/opportunities/$id',
+    getParentRoute: () => AuthenticatedCrmRouteRoute,
+  } as any)
+const AuthenticatedMmAutomationsIndexRoute =
+  AuthenticatedMmAutomationsIndexRouteImport.update({
+    id: '/automations/',
+    path: '/automations/',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmAutomationsIdRoute =
+  AuthenticatedMmAutomationsIdRouteImport.update({
+    id: '/automations/$id',
+    path: '/automations/$id',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmAutomationsNewRoute =
+  AuthenticatedMmAutomationsNewRouteImport.update({
+    id: '/automations/new',
+    path: '/automations/new',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmExecutionsIndexRoute =
+  AuthenticatedMmExecutionsIndexRouteImport.update({
+    id: '/executions/',
+    path: '/executions/',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedMmExecutionsIdRoute =
+  AuthenticatedMmExecutionsIdRouteImport.update({
+    id: '/executions/$id',
+    path: '/executions/$id',
+    getParentRoute: () => AuthenticatedMmRoute,
+  } as any)
+const AuthenticatedNojectProjectsIndexRoute =
+  AuthenticatedNojectProjectsIndexRouteImport.update({
+    id: '/projects/',
+    path: '/projects/',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedNojectProjectsProjectIdRoute =
+  AuthenticatedNojectProjectsProjectIdRouteImport.update({
+    id: '/projects/$projectId',
+    path: '/projects/$projectId',
+    getParentRoute: () => AuthenticatedNojectRouteRoute,
+  } as any)
+const AuthenticatedOcktavusAgentIndexRoute =
+  AuthenticatedOcktavusAgentIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedOcktavusAgentRoute,
+  } as any)
+const AuthenticatedOcktavusAgentConversationIdRoute =
+  AuthenticatedOcktavusAgentConversationIdRouteImport.update({
+    id: '/$conversationId',
+    path: '/$conversationId',
+    getParentRoute: () => AuthenticatedOcktavusAgentRoute,
+  } as any)
+const AuthenticatedOcktavusChatThreadIdRoute =
+  AuthenticatedOcktavusChatThreadIdRouteImport.update({
+    id: '/chat/$threadId',
+    path: '/chat/$threadId',
+    getParentRoute: () => AuthenticatedOcktavusRouteRoute,
+  } as any)
+const ApiPublicCrmMailgunInboundRoute =
+  ApiPublicCrmMailgunInboundRouteImport.update({
+    id: '/api/public/crm-mailgun/inbound',
+    path: '/api/public/crm-mailgun/inbound',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicGoogleCallbackRoute = ApiPublicGoogleCallbackRouteImport.update({
+  id: '/api/public/google/callback',
+  path: '/api/public/google/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicHooksAngeloCronRoute =
+  ApiPublicHooksAngeloCronRouteImport.update({
+    id: '/api/public/hooks/angelo-cron',
+    path: '/api/public/hooks/angelo-cron',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicHooksTickRoute = ApiPublicHooksTickRouteImport.update({
+  id: '/api/public/hooks/tick',
+  path: '/api/public/hooks/tick',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicMailgunMimeRoute = ApiPublicMailgunMimeRouteImport.update({
+  id: '/api/public/mailgun/mime',
+  path: '/api/public/mailgun/mime',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicPaGoogleCallbackRoute =
+  ApiPublicPaGoogleCallbackRouteImport.update({
+    id: '/api/public/pa-google/callback',
+    path: '/api/public/pa-google/callback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicPlanningGoogleCallbackRoute =
+  ApiPublicPlanningGoogleCallbackRouteImport.update({
+    id: '/api/public/planning-google/callback',
+    path: '/api/public/planning-google/callback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicSharedFileTokenRoute =
+  ApiPublicSharedFileTokenRouteImport.update({
+    id: '/api/public/shared-file/$token',
+    path: '/api/public/shared-file/$token',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicTepGoogleCallbackRoute =
+  ApiPublicTepGoogleCallbackRouteImport.update({
+    id: '/api/public/tep-google/callback',
+    path: '/api/public/tep-google/callback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TepTepauthContenuIndexRoute = TepTepauthContenuIndexRouteImport.update({
+  id: '/contenu/',
+  path: '/contenu/',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepTepauthContenuCalendrierRoute =
+  TepTepauthContenuCalendrierRouteImport.update({
+    id: '/contenu/calendrier',
+    path: '/contenu/calendrier',
+    getParentRoute: () => TepTepauthRoute,
+  } as any)
+const TepTepauthContenuMarqueRoute = TepTepauthContenuMarqueRouteImport.update({
+  id: '/contenu/marque',
+  path: '/contenu/marque',
+  getParentRoute: () => TepTepauthRoute,
+} as any)
+const TepPlanificationJourDateRoute =
+  TepPlanificationJourDateRouteImport.update({
+    id: '/planification/jour/$date',
+    path: '/planification/jour/$date',
+    getParentRoute: () => TepRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sky-journal': typeof SkyJournalRoute
+  '/tep': typeof TepRouteWithChildren
+  '/crm': typeof AuthenticatedCrmRouteRouteWithChildren
+  '/noject': typeof AuthenticatedNojectRouteRouteWithChildren
+  '/ocktavus': typeof AuthenticatedOcktavusRouteRouteWithChildren
+  '/angelo': typeof AuthenticatedAngeloRouteWithChildren
+  '/apps': typeof AuthenticatedAppsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/history': typeof AuthenticatedHistoryRoute
+  '/ideas': typeof AuthenticatedIdeasRoute
+  '/mm': typeof AuthenticatedMmRouteWithChildren
+  '/planning': typeof AuthenticatedPlanningRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/skytask': typeof AuthenticatedSkytaskRoute
+  '/smartteams': typeof AuthenticatedSmartteamsRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
+  '/api/chat': typeof ApiChatRoute
+  '/calendsky/planning': typeof CalendskyPlanningRoute
+  '/s/$token': typeof STokenRoute
+  '/sky/apps': typeof SkyAppsRoute
+  '/skydoc/dashboard': typeof SkydocDashboardRoute
+  '/skytab/dashboard': typeof SkytabDashboardRoute
+  '/tep/postit': typeof TepPostitRoute
+  '/calendsky/': typeof CalendskyIndexRoute
+  '/sky/': typeof SkyIndexRoute
+  '/skydoc/': typeof SkydocIndexRoute
+  '/skytab/': typeof SkytabIndexRoute
+  '/tasky/': typeof TaskyIndexRoute
+  '/tep/': typeof TepIndexRoute
+  '/memotrack': typeof AuthenticatedMemotrackMemotrackRoute
+  '/angelo/connexion-odoo': typeof AuthenticatedAngeloConnexionOdooRoute
+  '/angelo/factures': typeof AuthenticatedAngeloFacturesRoute
+  '/angelo/journal': typeof AuthenticatedAngeloJournalRoute
+  '/angelo/parametres': typeof AuthenticatedAngeloParametresRoute
+  '/angelo/tableau-de-bord': typeof AuthenticatedAngeloTableauDeBordRoute
+  '/crm/activities': typeof AuthenticatedCrmActivitiesRoute
+  '/crm/dashboard': typeof AuthenticatedCrmDashboardRoute
+  '/crm/settings': typeof AuthenticatedCrmSettingsRoute
+  '/crm/target-day': typeof AuthenticatedCrmTargetDayRoute
+  '/mm/cockpit': typeof AuthenticatedMmCockpitRoute
+  '/mm/connections': typeof AuthenticatedMmConnectionsRoute
+  '/mm/costs': typeof AuthenticatedMmCostsRoute
+  '/mm/helpy': typeof AuthenticatedMmHelpyRoute
+  '/mm/kpi': typeof AuthenticatedMmKpiRoute
+  '/mm/optimizer': typeof AuthenticatedMmOptimizerRoute
+  '/mm/preferences': typeof AuthenticatedMmPreferencesRoute
+  '/mm/ticks': typeof AuthenticatedMmTicksRoute
+  '/mm/tools': typeof AuthenticatedMmToolsRoute
+  '/noject/calendar': typeof AuthenticatedNojectCalendarRoute
+  '/noject/dashboard': typeof AuthenticatedNojectDashboardRoute
+  '/noject/portfolio': typeof AuthenticatedNojectPortfolioRoute
+  '/noject/settings': typeof AuthenticatedNojectSettingsRoute
+  '/ocktavus/agent': typeof AuthenticatedOcktavusAgentRouteWithChildren
+  '/ocktavus/blogger': typeof AuthenticatedOcktavusBloggerRoute
+  '/ocktavus/calendar': typeof AuthenticatedOcktavusCalendarRoute
+  '/ocktavus/connexions': typeof AuthenticatedOcktavusConnexionsRoute
+  '/ocktavus/contacts': typeof AuthenticatedOcktavusContactsRoute
+  '/ocktavus/docs': typeof AuthenticatedOcktavusDocsRoute
+  '/ocktavus/drive': typeof AuthenticatedOcktavusDriveRoute
+  '/ocktavus/forms': typeof AuthenticatedOcktavusFormsRoute
+  '/ocktavus/gmail': typeof AuthenticatedOcktavusGmailRoute
+  '/ocktavus/journal': typeof AuthenticatedOcktavusJournalRoute
+  '/ocktavus/reglages': typeof AuthenticatedOcktavusReglagesRoute
+  '/ocktavus/sheets': typeof AuthenticatedOcktavusSheetsRoute
+  '/ocktavus/slides': typeof AuthenticatedOcktavusSlidesRoute
+  '/ocktavus/tasks': typeof AuthenticatedOcktavusTasksRoute
+  '/sendy/settings': typeof AuthenticatedSendySettingsRoute
+  '/sky/cloud': typeof AuthenticatedSkyCloudRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/public/google-chat': typeof ApiPublicGoogleChatRoute
+  '/skydoc/doc/$id': typeof SkydocDocIdRoute
+  '/skytab/projet/$id': typeof SkytabProjetIdRoute
+  '/tep/equipes': typeof TepTepauthEquipesRoute
+  '/tep/probleme': typeof TepTepauthProblemeRoute
+  '/tep/prospection': typeof TepTepauthProspectionRoute
+  '/tep/recrutement': typeof TepTepauthRecrutementRoute
+  '/tep/projets/$projectId': typeof TepProjetsProjectIdRoute
+  '/tep/tableau/$boardId': typeof TepTableauBoardIdRoute
+  '/angelo/': typeof AuthenticatedAngeloIndexRoute
+  '/crm/': typeof AuthenticatedCrmIndexRoute
+  '/mm/': typeof AuthenticatedMmIndexRoute
+  '/noject/': typeof AuthenticatedNojectIndexRoute
+  '/ocktavus/': typeof AuthenticatedOcktavusIndexRoute
+  '/sendy/': typeof AuthenticatedSendyIndexRoute
+  '/tep/planification/': typeof TepPlanificationIndexRoute
+  '/tep/tableau/': typeof TepTableauIndexRoute
+  '/memo/$id': typeof AuthenticatedMemotrackMemoIdRoute
+  '/crm/opportunities/$id': typeof AuthenticatedCrmOpportunitiesIdRoute
+  '/mm/automations/$id': typeof AuthenticatedMmAutomationsIdRoute
+  '/mm/automations/new': typeof AuthenticatedMmAutomationsNewRoute
+  '/mm/executions/$id': typeof AuthenticatedMmExecutionsIdRoute
+  '/noject/projects/$projectId': typeof AuthenticatedNojectProjectsProjectIdRoute
+  '/ocktavus/agent/$conversationId': typeof AuthenticatedOcktavusAgentConversationIdRoute
+  '/ocktavus/chat/$threadId': typeof AuthenticatedOcktavusChatThreadIdRoute
+  '/api/public/crm-mailgun/inbound': typeof ApiPublicCrmMailgunInboundRoute
+  '/api/public/google/callback': typeof ApiPublicGoogleCallbackRoute
+  '/api/public/hooks/angelo-cron': typeof ApiPublicHooksAngeloCronRoute
+  '/api/public/hooks/tick': typeof ApiPublicHooksTickRoute
+  '/api/public/mailgun/mime': typeof ApiPublicMailgunMimeRoute
+  '/api/public/pa-google/callback': typeof ApiPublicPaGoogleCallbackRoute
+  '/api/public/planning-google/callback': typeof ApiPublicPlanningGoogleCallbackRoute
+  '/api/public/shared-file/$token': typeof ApiPublicSharedFileTokenRoute
+  '/api/public/tep-google/callback': typeof ApiPublicTepGoogleCallbackRoute
+  '/tep/contenu/calendrier': typeof TepTepauthContenuCalendrierRoute
+  '/tep/contenu/marque': typeof TepTepauthContenuMarqueRoute
+  '/tep/planification/jour/$date': typeof TepPlanificationJourDateRoute
+  '/crm/opportunities/': typeof AuthenticatedCrmOpportunitiesIndexRoute
+  '/mm/automations/': typeof AuthenticatedMmAutomationsIndexRoute
+  '/mm/executions/': typeof AuthenticatedMmExecutionsIndexRoute
+  '/noject/projects/': typeof AuthenticatedNojectProjectsIndexRoute
+  '/ocktavus/agent/': typeof AuthenticatedOcktavusAgentIndexRoute
+  '/tep/contenu/': typeof TepTepauthContenuIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sky-journal': typeof SkyJournalRoute
+  '/apps': typeof AuthenticatedAppsRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/history': typeof AuthenticatedHistoryRoute
+  '/ideas': typeof AuthenticatedIdeasRoute
+  '/planning': typeof AuthenticatedPlanningRoute
+  '/settings': typeof AuthenticatedSettingsRoute
+  '/skytask': typeof AuthenticatedSkytaskRoute
+  '/smartteams': typeof AuthenticatedSmartteamsRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
+  '/api/chat': typeof ApiChatRoute
+  '/calendsky/planning': typeof CalendskyPlanningRoute
+  '/s/$token': typeof STokenRoute
+  '/sky/apps': typeof SkyAppsRoute
+  '/skydoc/dashboard': typeof SkydocDashboardRoute
+  '/skytab/dashboard': typeof SkytabDashboardRoute
+  '/tep': typeof TepIndexRoute
+  '/tep/postit': typeof TepPostitRoute
+  '/calendsky': typeof CalendskyIndexRoute
+  '/sky': typeof SkyIndexRoute
+  '/skydoc': typeof SkydocIndexRoute
+  '/skytab': typeof SkytabIndexRoute
+  '/tasky': typeof TaskyIndexRoute
+  '/memotrack': typeof AuthenticatedMemotrackMemotrackRoute
+  '/angelo/connexion-odoo': typeof AuthenticatedAngeloConnexionOdooRoute
+  '/angelo/factures': typeof AuthenticatedAngeloFacturesRoute
+  '/angelo/journal': typeof AuthenticatedAngeloJournalRoute
+  '/angelo/parametres': typeof AuthenticatedAngeloParametresRoute
+  '/angelo/tableau-de-bord': typeof AuthenticatedAngeloTableauDeBordRoute
+  '/crm/activities': typeof AuthenticatedCrmActivitiesRoute
+  '/crm/dashboard': typeof AuthenticatedCrmDashboardRoute
+  '/crm/settings': typeof AuthenticatedCrmSettingsRoute
+  '/crm/target-day': typeof AuthenticatedCrmTargetDayRoute
+  '/mm/cockpit': typeof AuthenticatedMmCockpitRoute
+  '/mm/connections': typeof AuthenticatedMmConnectionsRoute
+  '/mm/costs': typeof AuthenticatedMmCostsRoute
+  '/mm/helpy': typeof AuthenticatedMmHelpyRoute
+  '/mm/kpi': typeof AuthenticatedMmKpiRoute
+  '/mm/optimizer': typeof AuthenticatedMmOptimizerRoute
+  '/mm/preferences': typeof AuthenticatedMmPreferencesRoute
+  '/mm/ticks': typeof AuthenticatedMmTicksRoute
+  '/mm/tools': typeof AuthenticatedMmToolsRoute
+  '/noject/calendar': typeof AuthenticatedNojectCalendarRoute
+  '/noject/dashboard': typeof AuthenticatedNojectDashboardRoute
+  '/noject/portfolio': typeof AuthenticatedNojectPortfolioRoute
+  '/noject/settings': typeof AuthenticatedNojectSettingsRoute
+  '/ocktavus/blogger': typeof AuthenticatedOcktavusBloggerRoute
+  '/ocktavus/calendar': typeof AuthenticatedOcktavusCalendarRoute
+  '/ocktavus/connexions': typeof AuthenticatedOcktavusConnexionsRoute
+  '/ocktavus/contacts': typeof AuthenticatedOcktavusContactsRoute
+  '/ocktavus/docs': typeof AuthenticatedOcktavusDocsRoute
+  '/ocktavus/drive': typeof AuthenticatedOcktavusDriveRoute
+  '/ocktavus/forms': typeof AuthenticatedOcktavusFormsRoute
+  '/ocktavus/gmail': typeof AuthenticatedOcktavusGmailRoute
+  '/ocktavus/journal': typeof AuthenticatedOcktavusJournalRoute
+  '/ocktavus/reglages': typeof AuthenticatedOcktavusReglagesRoute
+  '/ocktavus/sheets': typeof AuthenticatedOcktavusSheetsRoute
+  '/ocktavus/slides': typeof AuthenticatedOcktavusSlidesRoute
+  '/ocktavus/tasks': typeof AuthenticatedOcktavusTasksRoute
+  '/sendy/settings': typeof AuthenticatedSendySettingsRoute
+  '/sky/cloud': typeof AuthenticatedSkyCloudRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/public/google-chat': typeof ApiPublicGoogleChatRoute
+  '/skydoc/doc/$id': typeof SkydocDocIdRoute
+  '/skytab/projet/$id': typeof SkytabProjetIdRoute
+  '/tep/equipes': typeof TepTepauthEquipesRoute
+  '/tep/probleme': typeof TepTepauthProblemeRoute
+  '/tep/prospection': typeof TepTepauthProspectionRoute
+  '/tep/recrutement': typeof TepTepauthRecrutementRoute
+  '/tep/projets/$projectId': typeof TepProjetsProjectIdRoute
+  '/tep/tableau/$boardId': typeof TepTableauBoardIdRoute
+  '/angelo': typeof AuthenticatedAngeloIndexRoute
+  '/crm': typeof AuthenticatedCrmIndexRoute
+  '/mm': typeof AuthenticatedMmIndexRoute
+  '/noject': typeof AuthenticatedNojectIndexRoute
+  '/ocktavus': typeof AuthenticatedOcktavusIndexRoute
+  '/sendy': typeof AuthenticatedSendyIndexRoute
+  '/tep/planification': typeof TepPlanificationIndexRoute
+  '/tep/tableau': typeof TepTableauIndexRoute
+  '/memo/$id': typeof AuthenticatedMemotrackMemoIdRoute
+  '/crm/opportunities/$id': typeof AuthenticatedCrmOpportunitiesIdRoute
+  '/mm/automations/$id': typeof AuthenticatedMmAutomationsIdRoute
+  '/mm/automations/new': typeof AuthenticatedMmAutomationsNewRoute
+  '/mm/executions/$id': typeof AuthenticatedMmExecutionsIdRoute
+  '/noject/projects/$projectId': typeof AuthenticatedNojectProjectsProjectIdRoute
+  '/ocktavus/agent/$conversationId': typeof AuthenticatedOcktavusAgentConversationIdRoute
+  '/ocktavus/chat/$threadId': typeof AuthenticatedOcktavusChatThreadIdRoute
+  '/api/public/crm-mailgun/inbound': typeof ApiPublicCrmMailgunInboundRoute
+  '/api/public/google/callback': typeof ApiPublicGoogleCallbackRoute
+  '/api/public/hooks/angelo-cron': typeof ApiPublicHooksAngeloCronRoute
+  '/api/public/hooks/tick': typeof ApiPublicHooksTickRoute
+  '/api/public/mailgun/mime': typeof ApiPublicMailgunMimeRoute
+  '/api/public/pa-google/callback': typeof ApiPublicPaGoogleCallbackRoute
+  '/api/public/planning-google/callback': typeof ApiPublicPlanningGoogleCallbackRoute
+  '/api/public/shared-file/$token': typeof ApiPublicSharedFileTokenRoute
+  '/api/public/tep-google/callback': typeof ApiPublicTepGoogleCallbackRoute
+  '/tep/contenu/calendrier': typeof TepTepauthContenuCalendrierRoute
+  '/tep/contenu/marque': typeof TepTepauthContenuMarqueRoute
+  '/tep/planification/jour/$date': typeof TepPlanificationJourDateRoute
+  '/crm/opportunities': typeof AuthenticatedCrmOpportunitiesIndexRoute
+  '/mm/automations': typeof AuthenticatedMmAutomationsIndexRoute
+  '/mm/executions': typeof AuthenticatedMmExecutionsIndexRoute
+  '/noject/projects': typeof AuthenticatedNojectProjectsIndexRoute
+  '/ocktavus/agent': typeof AuthenticatedOcktavusAgentIndexRoute
+  '/tep/contenu': typeof TepTepauthContenuIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sky-journal': typeof SkyJournalRoute
+  '/tep': typeof TepRouteWithChildren
+  '/_authenticated/crm': typeof AuthenticatedCrmRouteRouteWithChildren
+  '/_authenticated/noject': typeof AuthenticatedNojectRouteRouteWithChildren
+  '/_authenticated/ocktavus': typeof AuthenticatedOcktavusRouteRouteWithChildren
+  '/_authenticated/_memotrack': typeof AuthenticatedMemotrackRouteWithChildren
+  '/_authenticated/angelo': typeof AuthenticatedAngeloRouteWithChildren
+  '/_authenticated/apps': typeof AuthenticatedAppsRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/history': typeof AuthenticatedHistoryRoute
+  '/_authenticated/ideas': typeof AuthenticatedIdeasRoute
+  '/_authenticated/mm': typeof AuthenticatedMmRouteWithChildren
+  '/_authenticated/planning': typeof AuthenticatedPlanningRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
+  '/_authenticated/skytask': typeof AuthenticatedSkytaskRoute
+  '/_authenticated/smartteams': typeof AuthenticatedSmartteamsRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
+  '/api/chat': typeof ApiChatRoute
+  '/calendsky/planning': typeof CalendskyPlanningRoute
+  '/s/$token': typeof STokenRoute
+  '/sky/apps': typeof SkyAppsRoute
+  '/skydoc/dashboard': typeof SkydocDashboardRoute
+  '/skytab/dashboard': typeof SkytabDashboardRoute
+  '/tep/_tepauth': typeof TepTepauthRouteWithChildren
+  '/tep/postit': typeof TepPostitRoute
+  '/calendsky/': typeof CalendskyIndexRoute
+  '/sky/': typeof SkyIndexRoute
+  '/skydoc/': typeof SkydocIndexRoute
+  '/skytab/': typeof SkytabIndexRoute
+  '/tasky/': typeof TaskyIndexRoute
+  '/tep/': typeof TepIndexRoute
+  '/_authenticated/_memotrack/memotrack': typeof AuthenticatedMemotrackMemotrackRoute
+  '/_authenticated/angelo/connexion-odoo': typeof AuthenticatedAngeloConnexionOdooRoute
+  '/_authenticated/angelo/factures': typeof AuthenticatedAngeloFacturesRoute
+  '/_authenticated/angelo/journal': typeof AuthenticatedAngeloJournalRoute
+  '/_authenticated/angelo/parametres': typeof AuthenticatedAngeloParametresRoute
+  '/_authenticated/angelo/tableau-de-bord': typeof AuthenticatedAngeloTableauDeBordRoute
+  '/_authenticated/crm/activities': typeof AuthenticatedCrmActivitiesRoute
+  '/_authenticated/crm/dashboard': typeof AuthenticatedCrmDashboardRoute
+  '/_authenticated/crm/settings': typeof AuthenticatedCrmSettingsRoute
+  '/_authenticated/crm/target-day': typeof AuthenticatedCrmTargetDayRoute
+  '/_authenticated/mm/cockpit': typeof AuthenticatedMmCockpitRoute
+  '/_authenticated/mm/connections': typeof AuthenticatedMmConnectionsRoute
+  '/_authenticated/mm/costs': typeof AuthenticatedMmCostsRoute
+  '/_authenticated/mm/helpy': typeof AuthenticatedMmHelpyRoute
+  '/_authenticated/mm/kpi': typeof AuthenticatedMmKpiRoute
+  '/_authenticated/mm/optimizer': typeof AuthenticatedMmOptimizerRoute
+  '/_authenticated/mm/preferences': typeof AuthenticatedMmPreferencesRoute
+  '/_authenticated/mm/ticks': typeof AuthenticatedMmTicksRoute
+  '/_authenticated/mm/tools': typeof AuthenticatedMmToolsRoute
+  '/_authenticated/noject/calendar': typeof AuthenticatedNojectCalendarRoute
+  '/_authenticated/noject/dashboard': typeof AuthenticatedNojectDashboardRoute
+  '/_authenticated/noject/portfolio': typeof AuthenticatedNojectPortfolioRoute
+  '/_authenticated/noject/settings': typeof AuthenticatedNojectSettingsRoute
+  '/_authenticated/ocktavus/agent': typeof AuthenticatedOcktavusAgentRouteWithChildren
+  '/_authenticated/ocktavus/blogger': typeof AuthenticatedOcktavusBloggerRoute
+  '/_authenticated/ocktavus/calendar': typeof AuthenticatedOcktavusCalendarRoute
+  '/_authenticated/ocktavus/connexions': typeof AuthenticatedOcktavusConnexionsRoute
+  '/_authenticated/ocktavus/contacts': typeof AuthenticatedOcktavusContactsRoute
+  '/_authenticated/ocktavus/docs': typeof AuthenticatedOcktavusDocsRoute
+  '/_authenticated/ocktavus/drive': typeof AuthenticatedOcktavusDriveRoute
+  '/_authenticated/ocktavus/forms': typeof AuthenticatedOcktavusFormsRoute
+  '/_authenticated/ocktavus/gmail': typeof AuthenticatedOcktavusGmailRoute
+  '/_authenticated/ocktavus/journal': typeof AuthenticatedOcktavusJournalRoute
+  '/_authenticated/ocktavus/reglages': typeof AuthenticatedOcktavusReglagesRoute
+  '/_authenticated/ocktavus/sheets': typeof AuthenticatedOcktavusSheetsRoute
+  '/_authenticated/ocktavus/slides': typeof AuthenticatedOcktavusSlidesRoute
+  '/_authenticated/ocktavus/tasks': typeof AuthenticatedOcktavusTasksRoute
+  '/_authenticated/sendy/settings': typeof AuthenticatedSendySettingsRoute
+  '/_authenticated/sky/cloud': typeof AuthenticatedSkyCloudRoute
+  '/api/google/callback': typeof ApiGoogleCallbackRoute
+  '/api/public/google-chat': typeof ApiPublicGoogleChatRoute
+  '/skydoc/doc/$id': typeof SkydocDocIdRoute
+  '/skytab/projet/$id': typeof SkytabProjetIdRoute
+  '/tep/_tepauth/equipes': typeof TepTepauthEquipesRoute
+  '/tep/_tepauth/probleme': typeof TepTepauthProblemeRoute
+  '/tep/_tepauth/prospection': typeof TepTepauthProspectionRoute
+  '/tep/_tepauth/recrutement': typeof TepTepauthRecrutementRoute
+  '/tep/projets/$projectId': typeof TepProjetsProjectIdRoute
+  '/tep/tableau/$boardId': typeof TepTableauBoardIdRoute
+  '/_authenticated/angelo/': typeof AuthenticatedAngeloIndexRoute
+  '/_authenticated/crm/': typeof AuthenticatedCrmIndexRoute
+  '/_authenticated/mm/': typeof AuthenticatedMmIndexRoute
+  '/_authenticated/noject/': typeof AuthenticatedNojectIndexRoute
+  '/_authenticated/ocktavus/': typeof AuthenticatedOcktavusIndexRoute
+  '/_authenticated/sendy/': typeof AuthenticatedSendyIndexRoute
+  '/tep/planification/': typeof TepPlanificationIndexRoute
+  '/tep/tableau/': typeof TepTableauIndexRoute
+  '/_authenticated/_memotrack/memo/$id': typeof AuthenticatedMemotrackMemoIdRoute
+  '/_authenticated/crm/opportunities/$id': typeof AuthenticatedCrmOpportunitiesIdRoute
+  '/_authenticated/mm/automations/$id': typeof AuthenticatedMmAutomationsIdRoute
+  '/_authenticated/mm/automations/new': typeof AuthenticatedMmAutomationsNewRoute
+  '/_authenticated/mm/executions/$id': typeof AuthenticatedMmExecutionsIdRoute
+  '/_authenticated/noject/projects/$projectId': typeof AuthenticatedNojectProjectsProjectIdRoute
+  '/_authenticated/ocktavus/agent/$conversationId': typeof AuthenticatedOcktavusAgentConversationIdRoute
+  '/_authenticated/ocktavus/chat/$threadId': typeof AuthenticatedOcktavusChatThreadIdRoute
+  '/api/public/crm-mailgun/inbound': typeof ApiPublicCrmMailgunInboundRoute
+  '/api/public/google/callback': typeof ApiPublicGoogleCallbackRoute
+  '/api/public/hooks/angelo-cron': typeof ApiPublicHooksAngeloCronRoute
+  '/api/public/hooks/tick': typeof ApiPublicHooksTickRoute
+  '/api/public/mailgun/mime': typeof ApiPublicMailgunMimeRoute
+  '/api/public/pa-google/callback': typeof ApiPublicPaGoogleCallbackRoute
+  '/api/public/planning-google/callback': typeof ApiPublicPlanningGoogleCallbackRoute
+  '/api/public/shared-file/$token': typeof ApiPublicSharedFileTokenRoute
+  '/api/public/tep-google/callback': typeof ApiPublicTepGoogleCallbackRoute
+  '/tep/_tepauth/contenu/calendrier': typeof TepTepauthContenuCalendrierRoute
+  '/tep/_tepauth/contenu/marque': typeof TepTepauthContenuMarqueRoute
+  '/tep/planification/jour/$date': typeof TepPlanificationJourDateRoute
+  '/_authenticated/crm/opportunities/': typeof AuthenticatedCrmOpportunitiesIndexRoute
+  '/_authenticated/mm/automations/': typeof AuthenticatedMmAutomationsIndexRoute
+  '/_authenticated/mm/executions/': typeof AuthenticatedMmExecutionsIndexRoute
+  '/_authenticated/noject/projects/': typeof AuthenticatedNojectProjectsIndexRoute
+  '/_authenticated/ocktavus/agent/': typeof AuthenticatedOcktavusAgentIndexRoute
+  '/tep/_tepauth/contenu/': typeof TepTepauthContenuIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/sky-journal'
+    | '/tep'
+    | '/crm'
+    | '/noject'
+    | '/ocktavus'
+    | '/angelo'
+    | '/apps'
+    | '/dashboard'
+    | '/history'
+    | '/ideas'
+    | '/mm'
+    | '/planning'
+    | '/settings'
+    | '/skytask'
+    | '/smartteams'
+    | '/api/analyze'
+    | '/api/chat'
+    | '/calendsky/planning'
+    | '/s/$token'
+    | '/sky/apps'
+    | '/skydoc/dashboard'
+    | '/skytab/dashboard'
+    | '/tep/postit'
+    | '/calendsky/'
+    | '/sky/'
+    | '/skydoc/'
+    | '/skytab/'
+    | '/tasky/'
+    | '/tep/'
+    | '/memotrack'
+    | '/angelo/connexion-odoo'
+    | '/angelo/factures'
+    | '/angelo/journal'
+    | '/angelo/parametres'
+    | '/angelo/tableau-de-bord'
+    | '/crm/activities'
+    | '/crm/dashboard'
+    | '/crm/settings'
+    | '/crm/target-day'
+    | '/mm/cockpit'
+    | '/mm/connections'
+    | '/mm/costs'
+    | '/mm/helpy'
+    | '/mm/kpi'
+    | '/mm/optimizer'
+    | '/mm/preferences'
+    | '/mm/ticks'
+    | '/mm/tools'
+    | '/noject/calendar'
+    | '/noject/dashboard'
+    | '/noject/portfolio'
+    | '/noject/settings'
+    | '/ocktavus/agent'
+    | '/ocktavus/blogger'
+    | '/ocktavus/calendar'
+    | '/ocktavus/connexions'
+    | '/ocktavus/contacts'
+    | '/ocktavus/docs'
+    | '/ocktavus/drive'
+    | '/ocktavus/forms'
+    | '/ocktavus/gmail'
+    | '/ocktavus/journal'
+    | '/ocktavus/reglages'
+    | '/ocktavus/sheets'
+    | '/ocktavus/slides'
+    | '/ocktavus/tasks'
+    | '/sendy/settings'
+    | '/sky/cloud'
+    | '/api/google/callback'
+    | '/api/public/google-chat'
+    | '/skydoc/doc/$id'
+    | '/skytab/projet/$id'
+    | '/tep/equipes'
+    | '/tep/probleme'
+    | '/tep/prospection'
+    | '/tep/recrutement'
+    | '/tep/projets/$projectId'
+    | '/tep/tableau/$boardId'
+    | '/angelo/'
+    | '/crm/'
+    | '/mm/'
+    | '/noject/'
+    | '/ocktavus/'
+    | '/sendy/'
+    | '/tep/planification/'
+    | '/tep/tableau/'
+    | '/memo/$id'
+    | '/crm/opportunities/$id'
+    | '/mm/automations/$id'
+    | '/mm/automations/new'
+    | '/mm/executions/$id'
+    | '/noject/projects/$projectId'
+    | '/ocktavus/agent/$conversationId'
+    | '/ocktavus/chat/$threadId'
+    | '/api/public/crm-mailgun/inbound'
+    | '/api/public/google/callback'
+    | '/api/public/hooks/angelo-cron'
+    | '/api/public/hooks/tick'
+    | '/api/public/mailgun/mime'
+    | '/api/public/pa-google/callback'
+    | '/api/public/planning-google/callback'
+    | '/api/public/shared-file/$token'
+    | '/api/public/tep-google/callback'
+    | '/tep/contenu/calendrier'
+    | '/tep/contenu/marque'
+    | '/tep/planification/jour/$date'
+    | '/crm/opportunities/'
+    | '/mm/automations/'
+    | '/mm/executions/'
+    | '/noject/projects/'
+    | '/ocktavus/agent/'
+    | '/tep/contenu/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/sky-journal'
+    | '/apps'
+    | '/dashboard'
+    | '/history'
+    | '/ideas'
+    | '/planning'
+    | '/settings'
+    | '/skytask'
+    | '/smartteams'
+    | '/api/analyze'
+    | '/api/chat'
+    | '/calendsky/planning'
+    | '/s/$token'
+    | '/sky/apps'
+    | '/skydoc/dashboard'
+    | '/skytab/dashboard'
+    | '/tep'
+    | '/tep/postit'
+    | '/calendsky'
+    | '/sky'
+    | '/skydoc'
+    | '/skytab'
+    | '/tasky'
+    | '/memotrack'
+    | '/angelo/connexion-odoo'
+    | '/angelo/factures'
+    | '/angelo/journal'
+    | '/angelo/parametres'
+    | '/angelo/tableau-de-bord'
+    | '/crm/activities'
+    | '/crm/dashboard'
+    | '/crm/settings'
+    | '/crm/target-day'
+    | '/mm/cockpit'
+    | '/mm/connections'
+    | '/mm/costs'
+    | '/mm/helpy'
+    | '/mm/kpi'
+    | '/mm/optimizer'
+    | '/mm/preferences'
+    | '/mm/ticks'
+    | '/mm/tools'
+    | '/noject/calendar'
+    | '/noject/dashboard'
+    | '/noject/portfolio'
+    | '/noject/settings'
+    | '/ocktavus/blogger'
+    | '/ocktavus/calendar'
+    | '/ocktavus/connexions'
+    | '/ocktavus/contacts'
+    | '/ocktavus/docs'
+    | '/ocktavus/drive'
+    | '/ocktavus/forms'
+    | '/ocktavus/gmail'
+    | '/ocktavus/journal'
+    | '/ocktavus/reglages'
+    | '/ocktavus/sheets'
+    | '/ocktavus/slides'
+    | '/ocktavus/tasks'
+    | '/sendy/settings'
+    | '/sky/cloud'
+    | '/api/google/callback'
+    | '/api/public/google-chat'
+    | '/skydoc/doc/$id'
+    | '/skytab/projet/$id'
+    | '/tep/equipes'
+    | '/tep/probleme'
+    | '/tep/prospection'
+    | '/tep/recrutement'
+    | '/tep/projets/$projectId'
+    | '/tep/tableau/$boardId'
+    | '/angelo'
+    | '/crm'
+    | '/mm'
+    | '/noject'
+    | '/ocktavus'
+    | '/sendy'
+    | '/tep/planification'
+    | '/tep/tableau'
+    | '/memo/$id'
+    | '/crm/opportunities/$id'
+    | '/mm/automations/$id'
+    | '/mm/automations/new'
+    | '/mm/executions/$id'
+    | '/noject/projects/$projectId'
+    | '/ocktavus/agent/$conversationId'
+    | '/ocktavus/chat/$threadId'
+    | '/api/public/crm-mailgun/inbound'
+    | '/api/public/google/callback'
+    | '/api/public/hooks/angelo-cron'
+    | '/api/public/hooks/tick'
+    | '/api/public/mailgun/mime'
+    | '/api/public/pa-google/callback'
+    | '/api/public/planning-google/callback'
+    | '/api/public/shared-file/$token'
+    | '/api/public/tep-google/callback'
+    | '/tep/contenu/calendrier'
+    | '/tep/contenu/marque'
+    | '/tep/planification/jour/$date'
+    | '/crm/opportunities'
+    | '/mm/automations'
+    | '/mm/executions'
+    | '/noject/projects'
+    | '/ocktavus/agent'
+    | '/tep/contenu'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/reset-password'
+    | '/sky-journal'
+    | '/tep'
+    | '/_authenticated/crm'
+    | '/_authenticated/noject'
+    | '/_authenticated/ocktavus'
+    | '/_authenticated/_memotrack'
+    | '/_authenticated/angelo'
+    | '/_authenticated/apps'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/history'
+    | '/_authenticated/ideas'
+    | '/_authenticated/mm'
+    | '/_authenticated/planning'
+    | '/_authenticated/settings'
+    | '/_authenticated/skytask'
+    | '/_authenticated/smartteams'
+    | '/api/analyze'
+    | '/api/chat'
+    | '/calendsky/planning'
+    | '/s/$token'
+    | '/sky/apps'
+    | '/skydoc/dashboard'
+    | '/skytab/dashboard'
+    | '/tep/_tepauth'
+    | '/tep/postit'
+    | '/calendsky/'
+    | '/sky/'
+    | '/skydoc/'
+    | '/skytab/'
+    | '/tasky/'
+    | '/tep/'
+    | '/_authenticated/_memotrack/memotrack'
+    | '/_authenticated/angelo/connexion-odoo'
+    | '/_authenticated/angelo/factures'
+    | '/_authenticated/angelo/journal'
+    | '/_authenticated/angelo/parametres'
+    | '/_authenticated/angelo/tableau-de-bord'
+    | '/_authenticated/crm/activities'
+    | '/_authenticated/crm/dashboard'
+    | '/_authenticated/crm/settings'
+    | '/_authenticated/crm/target-day'
+    | '/_authenticated/mm/cockpit'
+    | '/_authenticated/mm/connections'
+    | '/_authenticated/mm/costs'
+    | '/_authenticated/mm/helpy'
+    | '/_authenticated/mm/kpi'
+    | '/_authenticated/mm/optimizer'
+    | '/_authenticated/mm/preferences'
+    | '/_authenticated/mm/ticks'
+    | '/_authenticated/mm/tools'
+    | '/_authenticated/noject/calendar'
+    | '/_authenticated/noject/dashboard'
+    | '/_authenticated/noject/portfolio'
+    | '/_authenticated/noject/settings'
+    | '/_authenticated/ocktavus/agent'
+    | '/_authenticated/ocktavus/blogger'
+    | '/_authenticated/ocktavus/calendar'
+    | '/_authenticated/ocktavus/connexions'
+    | '/_authenticated/ocktavus/contacts'
+    | '/_authenticated/ocktavus/docs'
+    | '/_authenticated/ocktavus/drive'
+    | '/_authenticated/ocktavus/forms'
+    | '/_authenticated/ocktavus/gmail'
+    | '/_authenticated/ocktavus/journal'
+    | '/_authenticated/ocktavus/reglages'
+    | '/_authenticated/ocktavus/sheets'
+    | '/_authenticated/ocktavus/slides'
+    | '/_authenticated/ocktavus/tasks'
+    | '/_authenticated/sendy/settings'
+    | '/_authenticated/sky/cloud'
+    | '/api/google/callback'
+    | '/api/public/google-chat'
+    | '/skydoc/doc/$id'
+    | '/skytab/projet/$id'
+    | '/tep/_tepauth/equipes'
+    | '/tep/_tepauth/probleme'
+    | '/tep/_tepauth/prospection'
+    | '/tep/_tepauth/recrutement'
+    | '/tep/projets/$projectId'
+    | '/tep/tableau/$boardId'
+    | '/_authenticated/angelo/'
+    | '/_authenticated/crm/'
+    | '/_authenticated/mm/'
+    | '/_authenticated/noject/'
+    | '/_authenticated/ocktavus/'
+    | '/_authenticated/sendy/'
+    | '/tep/planification/'
+    | '/tep/tableau/'
+    | '/_authenticated/_memotrack/memo/$id'
+    | '/_authenticated/crm/opportunities/$id'
+    | '/_authenticated/mm/automations/$id'
+    | '/_authenticated/mm/automations/new'
+    | '/_authenticated/mm/executions/$id'
+    | '/_authenticated/noject/projects/$projectId'
+    | '/_authenticated/ocktavus/agent/$conversationId'
+    | '/_authenticated/ocktavus/chat/$threadId'
+    | '/api/public/crm-mailgun/inbound'
+    | '/api/public/google/callback'
+    | '/api/public/hooks/angelo-cron'
+    | '/api/public/hooks/tick'
+    | '/api/public/mailgun/mime'
+    | '/api/public/pa-google/callback'
+    | '/api/public/planning-google/callback'
+    | '/api/public/shared-file/$token'
+    | '/api/public/tep-google/callback'
+    | '/tep/_tepauth/contenu/calendrier'
+    | '/tep/_tepauth/contenu/marque'
+    | '/tep/planification/jour/$date'
+    | '/_authenticated/crm/opportunities/'
+    | '/_authenticated/mm/automations/'
+    | '/_authenticated/mm/executions/'
+    | '/_authenticated/noject/projects/'
+    | '/_authenticated/ocktavus/agent/'
+    | '/tep/_tepauth/contenu/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SkyJournalRoute: typeof SkyJournalRoute
+  TepRoute: typeof TepRouteWithChildren
+  ApiAnalyzeRoute: typeof ApiAnalyzeRoute
+  ApiChatRoute: typeof ApiChatRoute
+  CalendskyPlanningRoute: typeof CalendskyPlanningRoute
+  STokenRoute: typeof STokenRoute
+  SkyAppsRoute: typeof SkyAppsRoute
+  SkydocDashboardRoute: typeof SkydocDashboardRoute
+  SkytabDashboardRoute: typeof SkytabDashboardRoute
+  CalendskyIndexRoute: typeof CalendskyIndexRoute
+  SkyIndexRoute: typeof SkyIndexRoute
+  SkydocIndexRoute: typeof SkydocIndexRoute
+  SkytabIndexRoute: typeof SkytabIndexRoute
+  TaskyIndexRoute: typeof TaskyIndexRoute
+  ApiGoogleCallbackRoute: typeof ApiGoogleCallbackRoute
+  ApiPublicGoogleChatRoute: typeof ApiPublicGoogleChatRoute
+  SkydocDocIdRoute: typeof SkydocDocIdRoute
+  SkytabProjetIdRoute: typeof SkytabProjetIdRoute
+  ApiPublicCrmMailgunInboundRoute: typeof ApiPublicCrmMailgunInboundRoute
+  ApiPublicGoogleCallbackRoute: typeof ApiPublicGoogleCallbackRoute
+  ApiPublicHooksAngeloCronRoute: typeof ApiPublicHooksAngeloCronRoute
+  ApiPublicHooksTickRoute: typeof ApiPublicHooksTickRoute
+  ApiPublicMailgunMimeRoute: typeof ApiPublicMailgunMimeRoute
+  ApiPublicPaGoogleCallbackRoute: typeof ApiPublicPaGoogleCallbackRoute
+  ApiPublicPlanningGoogleCallbackRoute: typeof ApiPublicPlanningGoogleCallbackRoute
+  ApiPublicSharedFileTokenRoute: typeof ApiPublicSharedFileTokenRoute
+  ApiPublicTepGoogleCallbackRoute: typeof ApiPublicTepGoogleCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +1515,1145 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sky-journal': {
+      id: '/sky-journal'
+      path: '/sky-journal'
+      fullPath: '/sky-journal'
+      preLoaderRoute: typeof SkyJournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tep': {
+      id: '/tep'
+      path: '/tep'
+      fullPath: '/tep'
+      preLoaderRoute: typeof TepRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/_memotrack': {
+      id: '/_authenticated/_memotrack'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedMemotrackRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/angelo': {
+      id: '/_authenticated/angelo'
+      path: '/angelo'
+      fullPath: '/angelo'
+      preLoaderRoute: typeof AuthenticatedAngeloRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/apps': {
+      id: '/_authenticated/apps'
+      path: '/apps'
+      fullPath: '/apps'
+      preLoaderRoute: typeof AuthenticatedAppsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/crm': {
+      id: '/_authenticated/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof AuthenticatedCrmRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/history': {
+      id: '/_authenticated/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof AuthenticatedHistoryRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/ideas': {
+      id: '/_authenticated/ideas'
+      path: '/ideas'
+      fullPath: '/ideas'
+      preLoaderRoute: typeof AuthenticatedIdeasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/mm': {
+      id: '/_authenticated/mm'
+      path: '/mm'
+      fullPath: '/mm'
+      preLoaderRoute: typeof AuthenticatedMmRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/noject': {
+      id: '/_authenticated/noject'
+      path: '/noject'
+      fullPath: '/noject'
+      preLoaderRoute: typeof AuthenticatedNojectRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/ocktavus': {
+      id: '/_authenticated/ocktavus'
+      path: '/ocktavus'
+      fullPath: '/ocktavus'
+      preLoaderRoute: typeof AuthenticatedOcktavusRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planning': {
+      id: '/_authenticated/planning'
+      path: '/planning'
+      fullPath: '/planning'
+      preLoaderRoute: typeof AuthenticatedPlanningRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/skytask': {
+      id: '/_authenticated/skytask'
+      path: '/skytask'
+      fullPath: '/skytask'
+      preLoaderRoute: typeof AuthenticatedSkytaskRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/smartteams': {
+      id: '/_authenticated/smartteams'
+      path: '/smartteams'
+      fullPath: '/smartteams'
+      preLoaderRoute: typeof AuthenticatedSmartteamsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/analyze': {
+      id: '/api/analyze'
+      path: '/api/analyze'
+      fullPath: '/api/analyze'
+      preLoaderRoute: typeof ApiAnalyzeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendsky/': {
+      id: '/calendsky/'
+      path: '/calendsky'
+      fullPath: '/calendsky/'
+      preLoaderRoute: typeof CalendskyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calendsky/planning': {
+      id: '/calendsky/planning'
+      path: '/calendsky/planning'
+      fullPath: '/calendsky/planning'
+      preLoaderRoute: typeof CalendskyPlanningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/s/$token': {
+      id: '/s/$token'
+      path: '/s/$token'
+      fullPath: '/s/$token'
+      preLoaderRoute: typeof STokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sky/': {
+      id: '/sky/'
+      path: '/sky'
+      fullPath: '/sky/'
+      preLoaderRoute: typeof SkyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sky/apps': {
+      id: '/sky/apps'
+      path: '/sky/apps'
+      fullPath: '/sky/apps'
+      preLoaderRoute: typeof SkyAppsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skydoc/': {
+      id: '/skydoc/'
+      path: '/skydoc'
+      fullPath: '/skydoc/'
+      preLoaderRoute: typeof SkydocIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skydoc/dashboard': {
+      id: '/skydoc/dashboard'
+      path: '/skydoc/dashboard'
+      fullPath: '/skydoc/dashboard'
+      preLoaderRoute: typeof SkydocDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skytab/': {
+      id: '/skytab/'
+      path: '/skytab'
+      fullPath: '/skytab/'
+      preLoaderRoute: typeof SkytabIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skytab/dashboard': {
+      id: '/skytab/dashboard'
+      path: '/skytab/dashboard'
+      fullPath: '/skytab/dashboard'
+      preLoaderRoute: typeof SkytabDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasky/': {
+      id: '/tasky/'
+      path: '/tasky'
+      fullPath: '/tasky/'
+      preLoaderRoute: typeof TaskyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tep/': {
+      id: '/tep/'
+      path: '/'
+      fullPath: '/tep/'
+      preLoaderRoute: typeof TepIndexRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/tep/_tepauth': {
+      id: '/tep/_tepauth'
+      path: ''
+      fullPath: '/tep'
+      preLoaderRoute: typeof TepTepauthRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/tep/postit': {
+      id: '/tep/postit'
+      path: '/postit'
+      fullPath: '/tep/postit'
+      preLoaderRoute: typeof TepPostitRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/_authenticated/_memotrack/memotrack': {
+      id: '/_authenticated/_memotrack/memotrack'
+      path: '/memotrack'
+      fullPath: '/memotrack'
+      preLoaderRoute: typeof AuthenticatedMemotrackMemotrackRouteImport
+      parentRoute: typeof AuthenticatedMemotrackRoute
+    }
+    '/_authenticated/angelo/': {
+      id: '/_authenticated/angelo/'
+      path: '/'
+      fullPath: '/angelo/'
+      preLoaderRoute: typeof AuthenticatedAngeloIndexRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/angelo/connexion-odoo': {
+      id: '/_authenticated/angelo/connexion-odoo'
+      path: '/connexion-odoo'
+      fullPath: '/angelo/connexion-odoo'
+      preLoaderRoute: typeof AuthenticatedAngeloConnexionOdooRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/angelo/factures': {
+      id: '/_authenticated/angelo/factures'
+      path: '/factures'
+      fullPath: '/angelo/factures'
+      preLoaderRoute: typeof AuthenticatedAngeloFacturesRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/angelo/journal': {
+      id: '/_authenticated/angelo/journal'
+      path: '/journal'
+      fullPath: '/angelo/journal'
+      preLoaderRoute: typeof AuthenticatedAngeloJournalRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/angelo/parametres': {
+      id: '/_authenticated/angelo/parametres'
+      path: '/parametres'
+      fullPath: '/angelo/parametres'
+      preLoaderRoute: typeof AuthenticatedAngeloParametresRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/angelo/tableau-de-bord': {
+      id: '/_authenticated/angelo/tableau-de-bord'
+      path: '/tableau-de-bord'
+      fullPath: '/angelo/tableau-de-bord'
+      preLoaderRoute: typeof AuthenticatedAngeloTableauDeBordRouteImport
+      parentRoute: typeof AuthenticatedAngeloRoute
+    }
+    '/_authenticated/crm/': {
+      id: '/_authenticated/crm/'
+      path: '/'
+      fullPath: '/crm/'
+      preLoaderRoute: typeof AuthenticatedCrmIndexRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/crm/activities': {
+      id: '/_authenticated/crm/activities'
+      path: '/activities'
+      fullPath: '/crm/activities'
+      preLoaderRoute: typeof AuthenticatedCrmActivitiesRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/crm/dashboard': {
+      id: '/_authenticated/crm/dashboard'
+      path: '/dashboard'
+      fullPath: '/crm/dashboard'
+      preLoaderRoute: typeof AuthenticatedCrmDashboardRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/crm/settings': {
+      id: '/_authenticated/crm/settings'
+      path: '/settings'
+      fullPath: '/crm/settings'
+      preLoaderRoute: typeof AuthenticatedCrmSettingsRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/crm/target-day': {
+      id: '/_authenticated/crm/target-day'
+      path: '/target-day'
+      fullPath: '/crm/target-day'
+      preLoaderRoute: typeof AuthenticatedCrmTargetDayRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/mm/': {
+      id: '/_authenticated/mm/'
+      path: '/'
+      fullPath: '/mm/'
+      preLoaderRoute: typeof AuthenticatedMmIndexRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/cockpit': {
+      id: '/_authenticated/mm/cockpit'
+      path: '/cockpit'
+      fullPath: '/mm/cockpit'
+      preLoaderRoute: typeof AuthenticatedMmCockpitRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/connections': {
+      id: '/_authenticated/mm/connections'
+      path: '/connections'
+      fullPath: '/mm/connections'
+      preLoaderRoute: typeof AuthenticatedMmConnectionsRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/costs': {
+      id: '/_authenticated/mm/costs'
+      path: '/costs'
+      fullPath: '/mm/costs'
+      preLoaderRoute: typeof AuthenticatedMmCostsRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/helpy': {
+      id: '/_authenticated/mm/helpy'
+      path: '/helpy'
+      fullPath: '/mm/helpy'
+      preLoaderRoute: typeof AuthenticatedMmHelpyRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/kpi': {
+      id: '/_authenticated/mm/kpi'
+      path: '/kpi'
+      fullPath: '/mm/kpi'
+      preLoaderRoute: typeof AuthenticatedMmKpiRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/optimizer': {
+      id: '/_authenticated/mm/optimizer'
+      path: '/optimizer'
+      fullPath: '/mm/optimizer'
+      preLoaderRoute: typeof AuthenticatedMmOptimizerRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/preferences': {
+      id: '/_authenticated/mm/preferences'
+      path: '/preferences'
+      fullPath: '/mm/preferences'
+      preLoaderRoute: typeof AuthenticatedMmPreferencesRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/ticks': {
+      id: '/_authenticated/mm/ticks'
+      path: '/ticks'
+      fullPath: '/mm/ticks'
+      preLoaderRoute: typeof AuthenticatedMmTicksRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/tools': {
+      id: '/_authenticated/mm/tools'
+      path: '/tools'
+      fullPath: '/mm/tools'
+      preLoaderRoute: typeof AuthenticatedMmToolsRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/noject/': {
+      id: '/_authenticated/noject/'
+      path: '/'
+      fullPath: '/noject/'
+      preLoaderRoute: typeof AuthenticatedNojectIndexRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/noject/calendar': {
+      id: '/_authenticated/noject/calendar'
+      path: '/calendar'
+      fullPath: '/noject/calendar'
+      preLoaderRoute: typeof AuthenticatedNojectCalendarRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/noject/dashboard': {
+      id: '/_authenticated/noject/dashboard'
+      path: '/dashboard'
+      fullPath: '/noject/dashboard'
+      preLoaderRoute: typeof AuthenticatedNojectDashboardRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/noject/portfolio': {
+      id: '/_authenticated/noject/portfolio'
+      path: '/portfolio'
+      fullPath: '/noject/portfolio'
+      preLoaderRoute: typeof AuthenticatedNojectPortfolioRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/noject/settings': {
+      id: '/_authenticated/noject/settings'
+      path: '/settings'
+      fullPath: '/noject/settings'
+      preLoaderRoute: typeof AuthenticatedNojectSettingsRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/ocktavus/': {
+      id: '/_authenticated/ocktavus/'
+      path: '/'
+      fullPath: '/ocktavus/'
+      preLoaderRoute: typeof AuthenticatedOcktavusIndexRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/agent': {
+      id: '/_authenticated/ocktavus/agent'
+      path: '/agent'
+      fullPath: '/ocktavus/agent'
+      preLoaderRoute: typeof AuthenticatedOcktavusAgentRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/blogger': {
+      id: '/_authenticated/ocktavus/blogger'
+      path: '/blogger'
+      fullPath: '/ocktavus/blogger'
+      preLoaderRoute: typeof AuthenticatedOcktavusBloggerRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/calendar': {
+      id: '/_authenticated/ocktavus/calendar'
+      path: '/calendar'
+      fullPath: '/ocktavus/calendar'
+      preLoaderRoute: typeof AuthenticatedOcktavusCalendarRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/connexions': {
+      id: '/_authenticated/ocktavus/connexions'
+      path: '/connexions'
+      fullPath: '/ocktavus/connexions'
+      preLoaderRoute: typeof AuthenticatedOcktavusConnexionsRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/contacts': {
+      id: '/_authenticated/ocktavus/contacts'
+      path: '/contacts'
+      fullPath: '/ocktavus/contacts'
+      preLoaderRoute: typeof AuthenticatedOcktavusContactsRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/docs': {
+      id: '/_authenticated/ocktavus/docs'
+      path: '/docs'
+      fullPath: '/ocktavus/docs'
+      preLoaderRoute: typeof AuthenticatedOcktavusDocsRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/drive': {
+      id: '/_authenticated/ocktavus/drive'
+      path: '/drive'
+      fullPath: '/ocktavus/drive'
+      preLoaderRoute: typeof AuthenticatedOcktavusDriveRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/forms': {
+      id: '/_authenticated/ocktavus/forms'
+      path: '/forms'
+      fullPath: '/ocktavus/forms'
+      preLoaderRoute: typeof AuthenticatedOcktavusFormsRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/gmail': {
+      id: '/_authenticated/ocktavus/gmail'
+      path: '/gmail'
+      fullPath: '/ocktavus/gmail'
+      preLoaderRoute: typeof AuthenticatedOcktavusGmailRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/journal': {
+      id: '/_authenticated/ocktavus/journal'
+      path: '/journal'
+      fullPath: '/ocktavus/journal'
+      preLoaderRoute: typeof AuthenticatedOcktavusJournalRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/reglages': {
+      id: '/_authenticated/ocktavus/reglages'
+      path: '/reglages'
+      fullPath: '/ocktavus/reglages'
+      preLoaderRoute: typeof AuthenticatedOcktavusReglagesRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/sheets': {
+      id: '/_authenticated/ocktavus/sheets'
+      path: '/sheets'
+      fullPath: '/ocktavus/sheets'
+      preLoaderRoute: typeof AuthenticatedOcktavusSheetsRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/slides': {
+      id: '/_authenticated/ocktavus/slides'
+      path: '/slides'
+      fullPath: '/ocktavus/slides'
+      preLoaderRoute: typeof AuthenticatedOcktavusSlidesRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/ocktavus/tasks': {
+      id: '/_authenticated/ocktavus/tasks'
+      path: '/tasks'
+      fullPath: '/ocktavus/tasks'
+      preLoaderRoute: typeof AuthenticatedOcktavusTasksRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/_authenticated/sendy/': {
+      id: '/_authenticated/sendy/'
+      path: '/sendy'
+      fullPath: '/sendy/'
+      preLoaderRoute: typeof AuthenticatedSendyIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/sendy/settings': {
+      id: '/_authenticated/sendy/settings'
+      path: '/sendy/settings'
+      fullPath: '/sendy/settings'
+      preLoaderRoute: typeof AuthenticatedSendySettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/sky/cloud': {
+      id: '/_authenticated/sky/cloud'
+      path: '/sky/cloud'
+      fullPath: '/sky/cloud'
+      preLoaderRoute: typeof AuthenticatedSkyCloudRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/google/callback': {
+      id: '/api/google/callback'
+      path: '/api/google/callback'
+      fullPath: '/api/google/callback'
+      preLoaderRoute: typeof ApiGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/google-chat': {
+      id: '/api/public/google-chat'
+      path: '/api/public/google-chat'
+      fullPath: '/api/public/google-chat'
+      preLoaderRoute: typeof ApiPublicGoogleChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skydoc/doc/$id': {
+      id: '/skydoc/doc/$id'
+      path: '/skydoc/doc/$id'
+      fullPath: '/skydoc/doc/$id'
+      preLoaderRoute: typeof SkydocDocIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skytab/projet/$id': {
+      id: '/skytab/projet/$id'
+      path: '/skytab/projet/$id'
+      fullPath: '/skytab/projet/$id'
+      preLoaderRoute: typeof SkytabProjetIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tep/_tepauth/equipes': {
+      id: '/tep/_tepauth/equipes'
+      path: '/equipes'
+      fullPath: '/tep/equipes'
+      preLoaderRoute: typeof TepTepauthEquipesRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/_tepauth/probleme': {
+      id: '/tep/_tepauth/probleme'
+      path: '/probleme'
+      fullPath: '/tep/probleme'
+      preLoaderRoute: typeof TepTepauthProblemeRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/_tepauth/prospection': {
+      id: '/tep/_tepauth/prospection'
+      path: '/prospection'
+      fullPath: '/tep/prospection'
+      preLoaderRoute: typeof TepTepauthProspectionRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/_tepauth/recrutement': {
+      id: '/tep/_tepauth/recrutement'
+      path: '/recrutement'
+      fullPath: '/tep/recrutement'
+      preLoaderRoute: typeof TepTepauthRecrutementRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/planification/': {
+      id: '/tep/planification/'
+      path: '/planification'
+      fullPath: '/tep/planification/'
+      preLoaderRoute: typeof TepPlanificationIndexRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/tep/projets/$projectId': {
+      id: '/tep/projets/$projectId'
+      path: '/projets/$projectId'
+      fullPath: '/tep/projets/$projectId'
+      preLoaderRoute: typeof TepProjetsProjectIdRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/tep/tableau/': {
+      id: '/tep/tableau/'
+      path: '/tableau'
+      fullPath: '/tep/tableau/'
+      preLoaderRoute: typeof TepTableauIndexRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/tep/tableau/$boardId': {
+      id: '/tep/tableau/$boardId'
+      path: '/tableau/$boardId'
+      fullPath: '/tep/tableau/$boardId'
+      preLoaderRoute: typeof TepTableauBoardIdRouteImport
+      parentRoute: typeof TepRoute
+    }
+    '/_authenticated/_memotrack/memo/$id': {
+      id: '/_authenticated/_memotrack/memo/$id'
+      path: '/memo/$id'
+      fullPath: '/memo/$id'
+      preLoaderRoute: typeof AuthenticatedMemotrackMemoIdRouteImport
+      parentRoute: typeof AuthenticatedMemotrackRoute
+    }
+    '/_authenticated/crm/opportunities/': {
+      id: '/_authenticated/crm/opportunities/'
+      path: '/opportunities'
+      fullPath: '/crm/opportunities/'
+      preLoaderRoute: typeof AuthenticatedCrmOpportunitiesIndexRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/crm/opportunities/$id': {
+      id: '/_authenticated/crm/opportunities/$id'
+      path: '/opportunities/$id'
+      fullPath: '/crm/opportunities/$id'
+      preLoaderRoute: typeof AuthenticatedCrmOpportunitiesIdRouteImport
+      parentRoute: typeof AuthenticatedCrmRouteRoute
+    }
+    '/_authenticated/mm/automations/': {
+      id: '/_authenticated/mm/automations/'
+      path: '/automations'
+      fullPath: '/mm/automations/'
+      preLoaderRoute: typeof AuthenticatedMmAutomationsIndexRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/automations/$id': {
+      id: '/_authenticated/mm/automations/$id'
+      path: '/automations/$id'
+      fullPath: '/mm/automations/$id'
+      preLoaderRoute: typeof AuthenticatedMmAutomationsIdRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/automations/new': {
+      id: '/_authenticated/mm/automations/new'
+      path: '/automations/new'
+      fullPath: '/mm/automations/new'
+      preLoaderRoute: typeof AuthenticatedMmAutomationsNewRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/executions/': {
+      id: '/_authenticated/mm/executions/'
+      path: '/executions'
+      fullPath: '/mm/executions/'
+      preLoaderRoute: typeof AuthenticatedMmExecutionsIndexRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/mm/executions/$id': {
+      id: '/_authenticated/mm/executions/$id'
+      path: '/executions/$id'
+      fullPath: '/mm/executions/$id'
+      preLoaderRoute: typeof AuthenticatedMmExecutionsIdRouteImport
+      parentRoute: typeof AuthenticatedMmRoute
+    }
+    '/_authenticated/noject/projects/': {
+      id: '/_authenticated/noject/projects/'
+      path: '/projects'
+      fullPath: '/noject/projects/'
+      preLoaderRoute: typeof AuthenticatedNojectProjectsIndexRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/noject/projects/$projectId': {
+      id: '/_authenticated/noject/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/noject/projects/$projectId'
+      preLoaderRoute: typeof AuthenticatedNojectProjectsProjectIdRouteImport
+      parentRoute: typeof AuthenticatedNojectRouteRoute
+    }
+    '/_authenticated/ocktavus/agent/': {
+      id: '/_authenticated/ocktavus/agent/'
+      path: '/'
+      fullPath: '/ocktavus/agent/'
+      preLoaderRoute: typeof AuthenticatedOcktavusAgentIndexRouteImport
+      parentRoute: typeof AuthenticatedOcktavusAgentRoute
+    }
+    '/_authenticated/ocktavus/agent/$conversationId': {
+      id: '/_authenticated/ocktavus/agent/$conversationId'
+      path: '/$conversationId'
+      fullPath: '/ocktavus/agent/$conversationId'
+      preLoaderRoute: typeof AuthenticatedOcktavusAgentConversationIdRouteImport
+      parentRoute: typeof AuthenticatedOcktavusAgentRoute
+    }
+    '/_authenticated/ocktavus/chat/$threadId': {
+      id: '/_authenticated/ocktavus/chat/$threadId'
+      path: '/chat/$threadId'
+      fullPath: '/ocktavus/chat/$threadId'
+      preLoaderRoute: typeof AuthenticatedOcktavusChatThreadIdRouteImport
+      parentRoute: typeof AuthenticatedOcktavusRouteRoute
+    }
+    '/api/public/crm-mailgun/inbound': {
+      id: '/api/public/crm-mailgun/inbound'
+      path: '/api/public/crm-mailgun/inbound'
+      fullPath: '/api/public/crm-mailgun/inbound'
+      preLoaderRoute: typeof ApiPublicCrmMailgunInboundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/google/callback': {
+      id: '/api/public/google/callback'
+      path: '/api/public/google/callback'
+      fullPath: '/api/public/google/callback'
+      preLoaderRoute: typeof ApiPublicGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/angelo-cron': {
+      id: '/api/public/hooks/angelo-cron'
+      path: '/api/public/hooks/angelo-cron'
+      fullPath: '/api/public/hooks/angelo-cron'
+      preLoaderRoute: typeof ApiPublicHooksAngeloCronRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/tick': {
+      id: '/api/public/hooks/tick'
+      path: '/api/public/hooks/tick'
+      fullPath: '/api/public/hooks/tick'
+      preLoaderRoute: typeof ApiPublicHooksTickRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/mailgun/mime': {
+      id: '/api/public/mailgun/mime'
+      path: '/api/public/mailgun/mime'
+      fullPath: '/api/public/mailgun/mime'
+      preLoaderRoute: typeof ApiPublicMailgunMimeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/pa-google/callback': {
+      id: '/api/public/pa-google/callback'
+      path: '/api/public/pa-google/callback'
+      fullPath: '/api/public/pa-google/callback'
+      preLoaderRoute: typeof ApiPublicPaGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/planning-google/callback': {
+      id: '/api/public/planning-google/callback'
+      path: '/api/public/planning-google/callback'
+      fullPath: '/api/public/planning-google/callback'
+      preLoaderRoute: typeof ApiPublicPlanningGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/shared-file/$token': {
+      id: '/api/public/shared-file/$token'
+      path: '/api/public/shared-file/$token'
+      fullPath: '/api/public/shared-file/$token'
+      preLoaderRoute: typeof ApiPublicSharedFileTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/tep-google/callback': {
+      id: '/api/public/tep-google/callback'
+      path: '/api/public/tep-google/callback'
+      fullPath: '/api/public/tep-google/callback'
+      preLoaderRoute: typeof ApiPublicTepGoogleCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tep/_tepauth/contenu/': {
+      id: '/tep/_tepauth/contenu/'
+      path: '/contenu'
+      fullPath: '/tep/contenu/'
+      preLoaderRoute: typeof TepTepauthContenuIndexRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/_tepauth/contenu/calendrier': {
+      id: '/tep/_tepauth/contenu/calendrier'
+      path: '/contenu/calendrier'
+      fullPath: '/tep/contenu/calendrier'
+      preLoaderRoute: typeof TepTepauthContenuCalendrierRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/_tepauth/contenu/marque': {
+      id: '/tep/_tepauth/contenu/marque'
+      path: '/contenu/marque'
+      fullPath: '/tep/contenu/marque'
+      preLoaderRoute: typeof TepTepauthContenuMarqueRouteImport
+      parentRoute: typeof TepTepauthRoute
+    }
+    '/tep/planification/jour/$date': {
+      id: '/tep/planification/jour/$date'
+      path: '/planification/jour/$date'
+      fullPath: '/tep/planification/jour/$date'
+      preLoaderRoute: typeof TepPlanificationJourDateRouteImport
+      parentRoute: typeof TepRoute
+    }
   }
 }
 
+interface AuthenticatedCrmRouteRouteChildren {
+  AuthenticatedCrmActivitiesRoute: typeof AuthenticatedCrmActivitiesRoute
+  AuthenticatedCrmDashboardRoute: typeof AuthenticatedCrmDashboardRoute
+  AuthenticatedCrmSettingsRoute: typeof AuthenticatedCrmSettingsRoute
+  AuthenticatedCrmTargetDayRoute: typeof AuthenticatedCrmTargetDayRoute
+  AuthenticatedCrmIndexRoute: typeof AuthenticatedCrmIndexRoute
+  AuthenticatedCrmOpportunitiesIdRoute: typeof AuthenticatedCrmOpportunitiesIdRoute
+  AuthenticatedCrmOpportunitiesIndexRoute: typeof AuthenticatedCrmOpportunitiesIndexRoute
+}
+
+const AuthenticatedCrmRouteRouteChildren: AuthenticatedCrmRouteRouteChildren = {
+  AuthenticatedCrmActivitiesRoute: AuthenticatedCrmActivitiesRoute,
+  AuthenticatedCrmDashboardRoute: AuthenticatedCrmDashboardRoute,
+  AuthenticatedCrmSettingsRoute: AuthenticatedCrmSettingsRoute,
+  AuthenticatedCrmTargetDayRoute: AuthenticatedCrmTargetDayRoute,
+  AuthenticatedCrmIndexRoute: AuthenticatedCrmIndexRoute,
+  AuthenticatedCrmOpportunitiesIdRoute: AuthenticatedCrmOpportunitiesIdRoute,
+  AuthenticatedCrmOpportunitiesIndexRoute:
+    AuthenticatedCrmOpportunitiesIndexRoute,
+}
+
+const AuthenticatedCrmRouteRouteWithChildren =
+  AuthenticatedCrmRouteRoute._addFileChildren(
+    AuthenticatedCrmRouteRouteChildren,
+  )
+
+interface AuthenticatedNojectRouteRouteChildren {
+  AuthenticatedNojectCalendarRoute: typeof AuthenticatedNojectCalendarRoute
+  AuthenticatedNojectDashboardRoute: typeof AuthenticatedNojectDashboardRoute
+  AuthenticatedNojectPortfolioRoute: typeof AuthenticatedNojectPortfolioRoute
+  AuthenticatedNojectSettingsRoute: typeof AuthenticatedNojectSettingsRoute
+  AuthenticatedNojectIndexRoute: typeof AuthenticatedNojectIndexRoute
+  AuthenticatedNojectProjectsProjectIdRoute: typeof AuthenticatedNojectProjectsProjectIdRoute
+  AuthenticatedNojectProjectsIndexRoute: typeof AuthenticatedNojectProjectsIndexRoute
+}
+
+const AuthenticatedNojectRouteRouteChildren: AuthenticatedNojectRouteRouteChildren =
+  {
+    AuthenticatedNojectCalendarRoute: AuthenticatedNojectCalendarRoute,
+    AuthenticatedNojectDashboardRoute: AuthenticatedNojectDashboardRoute,
+    AuthenticatedNojectPortfolioRoute: AuthenticatedNojectPortfolioRoute,
+    AuthenticatedNojectSettingsRoute: AuthenticatedNojectSettingsRoute,
+    AuthenticatedNojectIndexRoute: AuthenticatedNojectIndexRoute,
+    AuthenticatedNojectProjectsProjectIdRoute:
+      AuthenticatedNojectProjectsProjectIdRoute,
+    AuthenticatedNojectProjectsIndexRoute:
+      AuthenticatedNojectProjectsIndexRoute,
+  }
+
+const AuthenticatedNojectRouteRouteWithChildren =
+  AuthenticatedNojectRouteRoute._addFileChildren(
+    AuthenticatedNojectRouteRouteChildren,
+  )
+
+interface AuthenticatedOcktavusAgentRouteChildren {
+  AuthenticatedOcktavusAgentConversationIdRoute: typeof AuthenticatedOcktavusAgentConversationIdRoute
+  AuthenticatedOcktavusAgentIndexRoute: typeof AuthenticatedOcktavusAgentIndexRoute
+}
+
+const AuthenticatedOcktavusAgentRouteChildren: AuthenticatedOcktavusAgentRouteChildren =
+  {
+    AuthenticatedOcktavusAgentConversationIdRoute:
+      AuthenticatedOcktavusAgentConversationIdRoute,
+    AuthenticatedOcktavusAgentIndexRoute: AuthenticatedOcktavusAgentIndexRoute,
+  }
+
+const AuthenticatedOcktavusAgentRouteWithChildren =
+  AuthenticatedOcktavusAgentRoute._addFileChildren(
+    AuthenticatedOcktavusAgentRouteChildren,
+  )
+
+interface AuthenticatedOcktavusRouteRouteChildren {
+  AuthenticatedOcktavusAgentRoute: typeof AuthenticatedOcktavusAgentRouteWithChildren
+  AuthenticatedOcktavusBloggerRoute: typeof AuthenticatedOcktavusBloggerRoute
+  AuthenticatedOcktavusCalendarRoute: typeof AuthenticatedOcktavusCalendarRoute
+  AuthenticatedOcktavusConnexionsRoute: typeof AuthenticatedOcktavusConnexionsRoute
+  AuthenticatedOcktavusContactsRoute: typeof AuthenticatedOcktavusContactsRoute
+  AuthenticatedOcktavusDocsRoute: typeof AuthenticatedOcktavusDocsRoute
+  AuthenticatedOcktavusDriveRoute: typeof AuthenticatedOcktavusDriveRoute
+  AuthenticatedOcktavusFormsRoute: typeof AuthenticatedOcktavusFormsRoute
+  AuthenticatedOcktavusGmailRoute: typeof AuthenticatedOcktavusGmailRoute
+  AuthenticatedOcktavusJournalRoute: typeof AuthenticatedOcktavusJournalRoute
+  AuthenticatedOcktavusReglagesRoute: typeof AuthenticatedOcktavusReglagesRoute
+  AuthenticatedOcktavusSheetsRoute: typeof AuthenticatedOcktavusSheetsRoute
+  AuthenticatedOcktavusSlidesRoute: typeof AuthenticatedOcktavusSlidesRoute
+  AuthenticatedOcktavusTasksRoute: typeof AuthenticatedOcktavusTasksRoute
+  AuthenticatedOcktavusIndexRoute: typeof AuthenticatedOcktavusIndexRoute
+  AuthenticatedOcktavusChatThreadIdRoute: typeof AuthenticatedOcktavusChatThreadIdRoute
+}
+
+const AuthenticatedOcktavusRouteRouteChildren: AuthenticatedOcktavusRouteRouteChildren =
+  {
+    AuthenticatedOcktavusAgentRoute:
+      AuthenticatedOcktavusAgentRouteWithChildren,
+    AuthenticatedOcktavusBloggerRoute: AuthenticatedOcktavusBloggerRoute,
+    AuthenticatedOcktavusCalendarRoute: AuthenticatedOcktavusCalendarRoute,
+    AuthenticatedOcktavusConnexionsRoute: AuthenticatedOcktavusConnexionsRoute,
+    AuthenticatedOcktavusContactsRoute: AuthenticatedOcktavusContactsRoute,
+    AuthenticatedOcktavusDocsRoute: AuthenticatedOcktavusDocsRoute,
+    AuthenticatedOcktavusDriveRoute: AuthenticatedOcktavusDriveRoute,
+    AuthenticatedOcktavusFormsRoute: AuthenticatedOcktavusFormsRoute,
+    AuthenticatedOcktavusGmailRoute: AuthenticatedOcktavusGmailRoute,
+    AuthenticatedOcktavusJournalRoute: AuthenticatedOcktavusJournalRoute,
+    AuthenticatedOcktavusReglagesRoute: AuthenticatedOcktavusReglagesRoute,
+    AuthenticatedOcktavusSheetsRoute: AuthenticatedOcktavusSheetsRoute,
+    AuthenticatedOcktavusSlidesRoute: AuthenticatedOcktavusSlidesRoute,
+    AuthenticatedOcktavusTasksRoute: AuthenticatedOcktavusTasksRoute,
+    AuthenticatedOcktavusIndexRoute: AuthenticatedOcktavusIndexRoute,
+    AuthenticatedOcktavusChatThreadIdRoute:
+      AuthenticatedOcktavusChatThreadIdRoute,
+  }
+
+const AuthenticatedOcktavusRouteRouteWithChildren =
+  AuthenticatedOcktavusRouteRoute._addFileChildren(
+    AuthenticatedOcktavusRouteRouteChildren,
+  )
+
+interface AuthenticatedMemotrackRouteChildren {
+  AuthenticatedMemotrackMemotrackRoute: typeof AuthenticatedMemotrackMemotrackRoute
+  AuthenticatedMemotrackMemoIdRoute: typeof AuthenticatedMemotrackMemoIdRoute
+}
+
+const AuthenticatedMemotrackRouteChildren: AuthenticatedMemotrackRouteChildren =
+  {
+    AuthenticatedMemotrackMemotrackRoute: AuthenticatedMemotrackMemotrackRoute,
+    AuthenticatedMemotrackMemoIdRoute: AuthenticatedMemotrackMemoIdRoute,
+  }
+
+const AuthenticatedMemotrackRouteWithChildren =
+  AuthenticatedMemotrackRoute._addFileChildren(
+    AuthenticatedMemotrackRouteChildren,
+  )
+
+interface AuthenticatedAngeloRouteChildren {
+  AuthenticatedAngeloConnexionOdooRoute: typeof AuthenticatedAngeloConnexionOdooRoute
+  AuthenticatedAngeloFacturesRoute: typeof AuthenticatedAngeloFacturesRoute
+  AuthenticatedAngeloJournalRoute: typeof AuthenticatedAngeloJournalRoute
+  AuthenticatedAngeloParametresRoute: typeof AuthenticatedAngeloParametresRoute
+  AuthenticatedAngeloTableauDeBordRoute: typeof AuthenticatedAngeloTableauDeBordRoute
+  AuthenticatedAngeloIndexRoute: typeof AuthenticatedAngeloIndexRoute
+}
+
+const AuthenticatedAngeloRouteChildren: AuthenticatedAngeloRouteChildren = {
+  AuthenticatedAngeloConnexionOdooRoute: AuthenticatedAngeloConnexionOdooRoute,
+  AuthenticatedAngeloFacturesRoute: AuthenticatedAngeloFacturesRoute,
+  AuthenticatedAngeloJournalRoute: AuthenticatedAngeloJournalRoute,
+  AuthenticatedAngeloParametresRoute: AuthenticatedAngeloParametresRoute,
+  AuthenticatedAngeloTableauDeBordRoute: AuthenticatedAngeloTableauDeBordRoute,
+  AuthenticatedAngeloIndexRoute: AuthenticatedAngeloIndexRoute,
+}
+
+const AuthenticatedAngeloRouteWithChildren =
+  AuthenticatedAngeloRoute._addFileChildren(AuthenticatedAngeloRouteChildren)
+
+interface AuthenticatedMmRouteChildren {
+  AuthenticatedMmCockpitRoute: typeof AuthenticatedMmCockpitRoute
+  AuthenticatedMmConnectionsRoute: typeof AuthenticatedMmConnectionsRoute
+  AuthenticatedMmCostsRoute: typeof AuthenticatedMmCostsRoute
+  AuthenticatedMmHelpyRoute: typeof AuthenticatedMmHelpyRoute
+  AuthenticatedMmKpiRoute: typeof AuthenticatedMmKpiRoute
+  AuthenticatedMmOptimizerRoute: typeof AuthenticatedMmOptimizerRoute
+  AuthenticatedMmPreferencesRoute: typeof AuthenticatedMmPreferencesRoute
+  AuthenticatedMmTicksRoute: typeof AuthenticatedMmTicksRoute
+  AuthenticatedMmToolsRoute: typeof AuthenticatedMmToolsRoute
+  AuthenticatedMmIndexRoute: typeof AuthenticatedMmIndexRoute
+  AuthenticatedMmAutomationsIdRoute: typeof AuthenticatedMmAutomationsIdRoute
+  AuthenticatedMmAutomationsNewRoute: typeof AuthenticatedMmAutomationsNewRoute
+  AuthenticatedMmExecutionsIdRoute: typeof AuthenticatedMmExecutionsIdRoute
+  AuthenticatedMmAutomationsIndexRoute: typeof AuthenticatedMmAutomationsIndexRoute
+  AuthenticatedMmExecutionsIndexRoute: typeof AuthenticatedMmExecutionsIndexRoute
+}
+
+const AuthenticatedMmRouteChildren: AuthenticatedMmRouteChildren = {
+  AuthenticatedMmCockpitRoute: AuthenticatedMmCockpitRoute,
+  AuthenticatedMmConnectionsRoute: AuthenticatedMmConnectionsRoute,
+  AuthenticatedMmCostsRoute: AuthenticatedMmCostsRoute,
+  AuthenticatedMmHelpyRoute: AuthenticatedMmHelpyRoute,
+  AuthenticatedMmKpiRoute: AuthenticatedMmKpiRoute,
+  AuthenticatedMmOptimizerRoute: AuthenticatedMmOptimizerRoute,
+  AuthenticatedMmPreferencesRoute: AuthenticatedMmPreferencesRoute,
+  AuthenticatedMmTicksRoute: AuthenticatedMmTicksRoute,
+  AuthenticatedMmToolsRoute: AuthenticatedMmToolsRoute,
+  AuthenticatedMmIndexRoute: AuthenticatedMmIndexRoute,
+  AuthenticatedMmAutomationsIdRoute: AuthenticatedMmAutomationsIdRoute,
+  AuthenticatedMmAutomationsNewRoute: AuthenticatedMmAutomationsNewRoute,
+  AuthenticatedMmExecutionsIdRoute: AuthenticatedMmExecutionsIdRoute,
+  AuthenticatedMmAutomationsIndexRoute: AuthenticatedMmAutomationsIndexRoute,
+  AuthenticatedMmExecutionsIndexRoute: AuthenticatedMmExecutionsIndexRoute,
+}
+
+const AuthenticatedMmRouteWithChildren = AuthenticatedMmRoute._addFileChildren(
+  AuthenticatedMmRouteChildren,
+)
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedCrmRouteRoute: typeof AuthenticatedCrmRouteRouteWithChildren
+  AuthenticatedNojectRouteRoute: typeof AuthenticatedNojectRouteRouteWithChildren
+  AuthenticatedOcktavusRouteRoute: typeof AuthenticatedOcktavusRouteRouteWithChildren
+  AuthenticatedMemotrackRoute: typeof AuthenticatedMemotrackRouteWithChildren
+  AuthenticatedAngeloRoute: typeof AuthenticatedAngeloRouteWithChildren
+  AuthenticatedAppsRoute: typeof AuthenticatedAppsRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedHistoryRoute: typeof AuthenticatedHistoryRoute
+  AuthenticatedIdeasRoute: typeof AuthenticatedIdeasRoute
+  AuthenticatedMmRoute: typeof AuthenticatedMmRouteWithChildren
+  AuthenticatedPlanningRoute: typeof AuthenticatedPlanningRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
+  AuthenticatedSkytaskRoute: typeof AuthenticatedSkytaskRoute
+  AuthenticatedSmartteamsRoute: typeof AuthenticatedSmartteamsRoute
+  AuthenticatedSendySettingsRoute: typeof AuthenticatedSendySettingsRoute
+  AuthenticatedSkyCloudRoute: typeof AuthenticatedSkyCloudRoute
+  AuthenticatedSendyIndexRoute: typeof AuthenticatedSendyIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedCrmRouteRoute: AuthenticatedCrmRouteRouteWithChildren,
+  AuthenticatedNojectRouteRoute: AuthenticatedNojectRouteRouteWithChildren,
+  AuthenticatedOcktavusRouteRoute: AuthenticatedOcktavusRouteRouteWithChildren,
+  AuthenticatedMemotrackRoute: AuthenticatedMemotrackRouteWithChildren,
+  AuthenticatedAngeloRoute: AuthenticatedAngeloRouteWithChildren,
+  AuthenticatedAppsRoute: AuthenticatedAppsRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedHistoryRoute: AuthenticatedHistoryRoute,
+  AuthenticatedIdeasRoute: AuthenticatedIdeasRoute,
+  AuthenticatedMmRoute: AuthenticatedMmRouteWithChildren,
+  AuthenticatedPlanningRoute: AuthenticatedPlanningRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
+  AuthenticatedSkytaskRoute: AuthenticatedSkytaskRoute,
+  AuthenticatedSmartteamsRoute: AuthenticatedSmartteamsRoute,
+  AuthenticatedSendySettingsRoute: AuthenticatedSendySettingsRoute,
+  AuthenticatedSkyCloudRoute: AuthenticatedSkyCloudRoute,
+  AuthenticatedSendyIndexRoute: AuthenticatedSendyIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
+interface TepTepauthRouteChildren {
+  TepTepauthEquipesRoute: typeof TepTepauthEquipesRoute
+  TepTepauthProblemeRoute: typeof TepTepauthProblemeRoute
+  TepTepauthProspectionRoute: typeof TepTepauthProspectionRoute
+  TepTepauthRecrutementRoute: typeof TepTepauthRecrutementRoute
+  TepTepauthContenuCalendrierRoute: typeof TepTepauthContenuCalendrierRoute
+  TepTepauthContenuMarqueRoute: typeof TepTepauthContenuMarqueRoute
+  TepTepauthContenuIndexRoute: typeof TepTepauthContenuIndexRoute
+}
+
+const TepTepauthRouteChildren: TepTepauthRouteChildren = {
+  TepTepauthEquipesRoute: TepTepauthEquipesRoute,
+  TepTepauthProblemeRoute: TepTepauthProblemeRoute,
+  TepTepauthProspectionRoute: TepTepauthProspectionRoute,
+  TepTepauthRecrutementRoute: TepTepauthRecrutementRoute,
+  TepTepauthContenuCalendrierRoute: TepTepauthContenuCalendrierRoute,
+  TepTepauthContenuMarqueRoute: TepTepauthContenuMarqueRoute,
+  TepTepauthContenuIndexRoute: TepTepauthContenuIndexRoute,
+}
+
+const TepTepauthRouteWithChildren = TepTepauthRoute._addFileChildren(
+  TepTepauthRouteChildren,
+)
+
+interface TepRouteChildren {
+  TepTepauthRoute: typeof TepTepauthRouteWithChildren
+  TepPostitRoute: typeof TepPostitRoute
+  TepIndexRoute: typeof TepIndexRoute
+  TepProjetsProjectIdRoute: typeof TepProjetsProjectIdRoute
+  TepTableauBoardIdRoute: typeof TepTableauBoardIdRoute
+  TepPlanificationIndexRoute: typeof TepPlanificationIndexRoute
+  TepTableauIndexRoute: typeof TepTableauIndexRoute
+  TepPlanificationJourDateRoute: typeof TepPlanificationJourDateRoute
+}
+
+const TepRouteChildren: TepRouteChildren = {
+  TepTepauthRoute: TepTepauthRouteWithChildren,
+  TepPostitRoute: TepPostitRoute,
+  TepIndexRoute: TepIndexRoute,
+  TepProjetsProjectIdRoute: TepProjetsProjectIdRoute,
+  TepTableauBoardIdRoute: TepTableauBoardIdRoute,
+  TepPlanificationIndexRoute: TepPlanificationIndexRoute,
+  TepTableauIndexRoute: TepTableauIndexRoute,
+  TepPlanificationJourDateRoute: TepPlanificationJourDateRoute,
+}
+
+const TepRouteWithChildren = TepRoute._addFileChildren(TepRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SkyJournalRoute: SkyJournalRoute,
+  TepRoute: TepRouteWithChildren,
+  ApiAnalyzeRoute: ApiAnalyzeRoute,
+  ApiChatRoute: ApiChatRoute,
+  CalendskyPlanningRoute: CalendskyPlanningRoute,
+  STokenRoute: STokenRoute,
+  SkyAppsRoute: SkyAppsRoute,
+  SkydocDashboardRoute: SkydocDashboardRoute,
+  SkytabDashboardRoute: SkytabDashboardRoute,
+  CalendskyIndexRoute: CalendskyIndexRoute,
+  SkyIndexRoute: SkyIndexRoute,
+  SkydocIndexRoute: SkydocIndexRoute,
+  SkytabIndexRoute: SkytabIndexRoute,
+  TaskyIndexRoute: TaskyIndexRoute,
+  ApiGoogleCallbackRoute: ApiGoogleCallbackRoute,
+  ApiPublicGoogleChatRoute: ApiPublicGoogleChatRoute,
+  SkydocDocIdRoute: SkydocDocIdRoute,
+  SkytabProjetIdRoute: SkytabProjetIdRoute,
+  ApiPublicCrmMailgunInboundRoute: ApiPublicCrmMailgunInboundRoute,
+  ApiPublicGoogleCallbackRoute: ApiPublicGoogleCallbackRoute,
+  ApiPublicHooksAngeloCronRoute: ApiPublicHooksAngeloCronRoute,
+  ApiPublicHooksTickRoute: ApiPublicHooksTickRoute,
+  ApiPublicMailgunMimeRoute: ApiPublicMailgunMimeRoute,
+  ApiPublicPaGoogleCallbackRoute: ApiPublicPaGoogleCallbackRoute,
+  ApiPublicPlanningGoogleCallbackRoute: ApiPublicPlanningGoogleCallbackRoute,
+  ApiPublicSharedFileTokenRoute: ApiPublicSharedFileTokenRoute,
+  ApiPublicTepGoogleCallbackRoute: ApiPublicTepGoogleCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
