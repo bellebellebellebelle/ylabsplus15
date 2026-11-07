@@ -159,7 +159,7 @@ export const runTask = createServerFn({ method: "POST" })
       // Odoo indisponible : l'agent travaille sans contexte externe.
     }
 
-    const { buildLabAgentTools } = await import("../assistant-apps.server");
+    const { buildLabAgentTools } = await import("@/lib/assistant-apps.server");
     const labTools = buildLabAgentTools(Array.isArray(agent.lab_apps) ? agent.lab_apps : []);
 
     try {
@@ -179,7 +179,7 @@ Tu peux AGIR réellement dans les applications du laboratoire auxquelles tu as a
       if ((odooTools.length > 0 && odooCreds) || labTools.length > 0) {
         const { chatWithTools } = await import("./ai-gateway.server");
         const { runOdooTool, odooSearch } = await import("./odoo.server");
-        const { runAppAction } = await import("../assistant-apps.server");
+        const { runAppAction } = await import("@/lib/assistant-apps.server");
         const creds = odooCreds;
         const uid = odooUid;
 

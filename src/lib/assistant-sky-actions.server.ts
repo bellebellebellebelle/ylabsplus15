@@ -24,7 +24,7 @@ export const skyActions: Record<string, Record<string, Action>> = {
       description: "Envoyer réellement un e-mail depuis l'adresse Sendy de l'utilisateur. to (virgules si plusieurs), subject, text, cc facultatif.",
       input: z.object({ to: z.string(), subject: z.string(), text: z.string(), cc: z.string().optional() }),
       run: async ({ db, userId }, i) => {
-        const { sendSendyMail } = await import("./sendy.server");
+        const { sendSendyMail } = await import("@/sendy/lib/sendy.server");
         const r = await sendSendyMail(db, userId, i);
         if (!r.ok) return { error: r.error, open: "/sendy" };
         return ok({ envoye: true, to: i.to }, "/sendy");

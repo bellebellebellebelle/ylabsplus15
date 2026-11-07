@@ -43,7 +43,7 @@ export const runWebSearch = createServerFn({ method: "POST" })
     const pages = await Promise.all(sources.slice(0, 3).map(s => readPage(s.url)));
     const context = sources.map((s, i) => `[${i + 1}] ${s.title}\n${s.url}\n${s.snippet}${pages[i] ? `\nExtrait : ${pages[i]}` : ""}`).join("\n\n");
 
-    const [{ createOpenAI }, { streamText }, { createLovableAiGatewayRunIdFetch }] = await Promise.all([import("@ai-sdk/openai"), import("ai"), import("./smart-teams/run-id.ts")]);
+    const [{ createOpenAI }, { streamText }, { createLovableAiGatewayRunIdFetch }] = await Promise.all([import("@ai-sdk/openai"), import("ai"), import("@/smartteams/lib/run-id.ts")]);
     const run = createLovableAiGatewayRunIdFetch();
     const openai = createOpenAI({ apiKey, baseURL: "https://ai.gateway.lovable.dev/v1", headers: { "Lovable-API-Key": apiKey, "X-Lovable-AIG-SDK": "vercel-ai-sdk" }, fetch: run.fetch });
     const result = streamText({
