@@ -1,3 +1,4 @@
+import { sy } from "@/sendy/lib/db";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
@@ -9,7 +10,7 @@ export function useMailbox() {
     queryFn: async () => {
       const { data: u } = await supabase.auth.getUser();
       if (!u.user) return null;
-      const { data } = await supabase.from("sendy_mailboxes").select("*").eq("user_id", u.user.id).maybeSingle();
+      const { data } = await sy(supabase).from("sendy_mailboxes").select("*").eq("user_id", u.user.id).maybeSingle();
       return data;
     },
   });

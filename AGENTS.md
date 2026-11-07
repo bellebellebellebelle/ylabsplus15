@@ -29,3 +29,5 @@
 - Every app owns tables with its own unique prefix (skydoc_, skytab_, skycloud_, skytask_, calendsky_, sendy_, crm_, angelo_, ocktavus_, mm_, st_, tep_, noject_, pa_); only the Laboratory keeps unprefixed shared tables (profiles, settings, AI models, Odoo/Google connections, lab_activity, ideas), so no app can collide with another's schema.
 - Every app owns a unique URL prefix (/angelo, /mm, /tep, /sendy, /smartteams, /skytask, /crm, /noject…); only the Laboratory/Aura core stays at the root, so app URLs never collide.
 - Each app keeps its non-route code in `src/{app}/` (components/, lib/) and uses its own prefixed storage bucket (e.g. skycloud-files, sendy-attachments); routes stay in src/routes because TanStack requires it, so apps never share code folders or files.
+- Each prefixed app has `src/{app}/types.ts` (its own tables only) and a `src/{app}/lib/db.ts` cast helper (st, sd, stab, sy, sc, ang, like `nj()`), so queries are typed to the app's own schema.
+- App attachments live in the app's own bucket under `{userId}/{scope}/` (storage-list only, no table), matching the per-user folder RLS on those buckets.

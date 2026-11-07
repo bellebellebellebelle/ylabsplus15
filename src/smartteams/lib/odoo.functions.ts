@@ -1,3 +1,4 @@
+import { st } from "@/smartteams/lib/db";
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
@@ -63,7 +64,7 @@ export const setDepartmentModules = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => ModulesInput.parse(input))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
-    const { error } = await supabase.from("st_department_modules").upsert(
+    const { error } = await st(supabase).from("st_department_modules").upsert(
       { user_id: userId, department: data.department, modules: data.modules },
       { onConflict: "user_id,department" },
     );

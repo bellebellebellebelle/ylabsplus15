@@ -1,3 +1,4 @@
+import { st } from "@/smartteams/lib/db";
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
@@ -63,10 +64,10 @@ export const BOARD_KEY = ["smart-teams-board"] as const;
 
 export async function fetchBoard(): Promise<BoardData> {
   const [teams, agents, missions, tasks] = await Promise.all([
-    supabase.from("st_teams").select("*").order("created_at"),
-    supabase.from("st_agents").select("*").order("created_at"),
-    supabase.from("st_missions").select("*").order("created_at", { ascending: false }),
-    supabase.from("st_tasks").select("*").order("created_at"),
+    st(supabase).from("st_teams").select("*").order("created_at"),
+    st(supabase).from("st_agents").select("*").order("created_at"),
+    st(supabase).from("st_missions").select("*").order("created_at", { ascending: false }),
+    st(supabase).from("st_tasks").select("*").order("created_at"),
   ]);
   const err = teams.error || agents.error || missions.error || tasks.error;
   if (err) throw new Error(err.message);
@@ -114,8 +115,7 @@ export async function currentUserId() {
 
 export async function createTeam(department: string, name: string, mission = "") {
   const user_id = await currentUserId();
-  const { data, error } = await supabase
-    .from("st_teams")
+  const { data, error } = await st(supabase).from("st_teams")
     .insert({ user_id, department, name, mission })
     .select()
     .single();
@@ -124,19 +124,18 @@ export async function createTeam(department: string, name: string, mission = "")
 }
 
 export async function updateTeam(id: string, patch: Partial<Team>) {
-  const { error } = await supabase.from("st_teams").update(patch).eq("id", id);
+  const { error } = await st(supabase).from("st_teams").update(patch).eq("id", id);
   if (error) throw new Error(error.message);
 }
 
 export async function deleteTeam(id: string) {
-  const { error } = await supabase.from("st_teams").delete().eq("id", id);
+  const { error } = await st(supabase).from("st_teams").delete().eq("id", id);
   if (error) throw new Error(error.message);
 }
 
 export async function createAgent(input: Partial<Agent> & { department: string; name: string }) {
   const user_id = await currentUserId();
-  const { data, error } = await supabase
-    .from("st_agents")
+  const { data, error } = await st(supabase).from("st_agents")
     .insert({ ...input, user_id })
     .select()
     .single();
@@ -145,17 +144,17 @@ export async function createAgent(input: Partial<Agent> & { department: string; 
 }
 
 export async function updateAgent(id: string, patch: Partial<Agent>) {
-  const { error } = await supabase.from("st_agents").update(patch).eq("id", id);
+  const { error } = await st(supabase).from("st_agents").update(patch).eq("id", id);
   if (error) throw new Error(error.message);
 }
 
 export async function deleteAgent(id: string) {
-  const { error } = await supabase.from("st_agents").delete().eq("id", id);
+  const { error } = await st(supabase).from("st_agents").delete().eq("id", id);
   if (error) throw new Error(error.message);
 }
 
 export async function deleteTask(id: string) {
-  const { error } = await supabase.from("st_tasks").delete().eq("id", id);
+  const { error } = await st(supabase).from("st_tasks").delete().eq("id", id);
   if (error) throw new Error(error.message);
 }
 
@@ -176,8 +175,7 @@ export type OdooState = {
 };
 
 export async function fetchCustomDepartments(): Promise<CustomDepartment[]> {
-  const { data, error } = await supabase
-    .from("st_custom_departments")
+  const { data, error } = await st(supabase).from("st_custom_departments")
     .select("id, key, label, blurb, default_team")
     .order("created_at");
   if (error) throw new Error(error.message);
@@ -193,8 +191,7 @@ export async function createCustomDepartment(label: string): Promise<CustomDepar
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "")
     .slice(0, 24)}_${Date.now().toString(36)}`;
-  const { data, error } = await supabase
-    .from("st_custom_departments")
+  const { data, error } = await st(supabase).from("st_custom_departments")
     .insert({ user_id, key, label, default_team: `Équipe ${label}` })
     .select()
     .single();
@@ -203,7 +200,7 @@ export async function createCustomDepartment(label: string): Promise<CustomDepar
 }
 
 export async function deleteCustomDepartment(id: string) {
-  const { error } = await supabase.from("st_custom_departments").delete().eq("id", id);
+  const { error } = await st(supabase).from("st_custom_departments").delete().eq("id", id);
   if (error) throw new Error(error.message);
 }
 
@@ -213,7 +210,7 @@ export async function fetchOdooState(): Promise<OdooState> {
       .from("odoo_connections")
       .select("url, database:db, username, status")
       .maybeSingle(),
-    supabase.from("st_department_modules").select("department, modules"),
+    st(supabase).from("st_department_modules").select("department, modules"),
   ]);
   if (conn.error) throw new Error(conn.error.message);
   if (mods.error) throw new Error(mods.error.message);

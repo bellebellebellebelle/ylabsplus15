@@ -1,3 +1,4 @@
+import { sy } from "@/sendy/lib/db";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { SupabaseClient } from "@supabase/supabase-js";
 
@@ -12,7 +13,7 @@ export async function sendSendyMail(
   const base = (process.env["MAILGUN_API_BASE"] || "https://api.mailgun.net").replace(/\/$/, "");
   if (!apiKey || !domain) return { ok: false, error: "Mailgun n'est pas configuré." };
 
-  const { data: mb } = await db.from("sendy_mailboxes").select("local_part, display_name").eq("user_id", userId).maybeSingle();
+  const { data: mb } = await sy(db).from("sendy_mailboxes").select("local_part, display_name").eq("user_id", userId).maybeSingle();
   if (!mb) return { ok: false, error: "Aucune adresse Sendy réservée. Ouvrez SENDYME pour en créer une." };
 
   const emailRe = /^[^\s@<>,]+@[^\s@<>,]+\.[^\s@<>,]+$/;
@@ -42,7 +43,7 @@ export async function sendSendyMail(
   try { providerId = JSON.parse(body).id ?? null; } catch { /* ignore */ }
 
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-  await supabaseAdmin.from("sendy_mail_messages").insert({
+  await sy(supabaseAdmin).from("sendy_mail_messages").insert({
     user_id: userId,
     folder: "sent",
     from_address: `${mb.local_part}@${domain}`,

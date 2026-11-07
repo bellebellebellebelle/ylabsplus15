@@ -1,3 +1,4 @@
+import { st } from "@/smartteams/lib/db";
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { z } from "zod";
@@ -22,15 +23,13 @@ export const planMission = createServerFn({ method: "POST" })
     const { chat, parseJson } = await import("./ai-gateway.server");
     const { supabase, userId } = context;
 
-    const { data: team } = await supabase
-      .from("st_teams")
+    const { data: team } = await st(supabase).from("st_teams")
       .select("*")
       .eq("user_id", userId).eq("id", data.teamId)
       .maybeSingle();
     if (!team) throw new Error("Équipe introuvable.");
 
-    const { data: agents } = await supabase
-      .from("st_agents")
+    const { data: agents } = await st(supabase).from("st_agents")
       .select("id, name, role, is_chief, skills, department")
       .eq("user_id", userId).eq("team_id", data.teamId);
 
@@ -75,8 +74,7 @@ Entre 2 et ${Math.max(2, Math.min(6, assignable.length * 2))} tâches. Uniquemen
       .slice(0, 8);
     if (tasks.length === 0) throw new Error("Le chef n'a pas réussi à structurer la mission.");
 
-    const { data: mission, error: mErr } = await supabase
-      .from("st_missions")
+    const { data: mission, error: mErr } = await st(supabase).from("st_missions")
       .insert({
         user_id: userId,
         team_id: data.teamId,
@@ -88,7 +86,7 @@ Entre 2 et ${Math.max(2, Math.min(6, assignable.length * 2))} tâches. Uniquemen
       .single();
     if (mErr) throw new Error(mErr.message);
 
-    const { error: tErr } = await supabase.from("st_tasks").insert(
+    const { error: tErr } = await st(supabase).from("st_tasks").insert(
       tasks.map((t) => ({
         user_id: userId,
         team_id: data.teamId,
@@ -112,22 +110,20 @@ export const runTask = createServerFn({ method: "POST" })
     const { chat } = await import("./ai-gateway.server");
     const { supabase, userId } = context;
 
-    const { data: task } = await supabase
-      .from("st_tasks")
+    const { data: task } = await st(supabase).from("st_tasks")
       .select("*")
       .eq("user_id", userId).eq("id", data.taskId)
       .maybeSingle();
     if (!task) throw new Error("Tâche introuvable.");
 
-    const { data: agent } = await supabase
-      .from("st_agents")
+    const { data: agent } = await st(supabase).from("st_agents")
       .select("*")
       .eq("user_id", userId).eq("team_id", task.team_id).eq("id", task.agent_id ?? "")
       .maybeSingle();
     if (!agent) throw new Error("Aucun agent n'est assigné à cette tâche.");
 
-    await supabase.from("st_tasks").update({ status: "running" }).eq("id", task.id);
-    await supabase.from("st_agents").update({ status: "working" }).eq("id", agent.id);
+    await st(supabase).from("st_tasks").update({ status: "running" }).eq("id", task.id);
+    await st(supabase).from("st_agents").update({ status: "working" }).eq("id", agent.id);
 
     // Contexte Odoo réel + boîte à outils d'écriture si la base est connectée.
     let odooContext = "";
@@ -141,8 +137,7 @@ export const runTask = createServerFn({ method: "POST" })
         .eq("user_id", userId)
         .maybeSingle();
       if (conn?.url && conn.database) {
-        const { data: dm } = await supabase
-          .from("st_department_modules")
+        const { data: dm } = await st(supabase).from("st_department_modules")
           .select("modules")
           .eq("department", agent.department)
           .maybeSingle();
@@ -241,16 +236,15 @@ Tu peux AGIR réellement dans les applications du laboratoire auxquelles tu as a
         result = `**Actions réellement exécutées :**\n${actions.map((a) => `- ${a}`).join("\n")}\n\n---\n\n${result}`;
       }
 
-      await supabase
-        .from("st_tasks")
+      await st(supabase).from("st_tasks")
         .update({ status: "done", result })
         .eq("id", task.id);
-      await supabase.from("st_agents").update({ status: "done" }).eq("id", agent.id);
+      await st(supabase).from("st_agents").update({ status: "done" }).eq("id", agent.id);
       return { result };
     } catch (error) {
       const message = error instanceof Error ? error.message : "Échec de l'exécution.";
-      await supabase.from("st_tasks").update({ status: "error", result: message }).eq("id", task.id);
-      await supabase.from("st_agents").update({ status: "error" }).eq("id", agent.id);
+      await st(supabase).from("st_tasks").update({ status: "error", result: message }).eq("id", task.id);
+      await st(supabase).from("st_agents").update({ status: "error" }).eq("id", agent.id);
       throw new Error(message);
     }
   });

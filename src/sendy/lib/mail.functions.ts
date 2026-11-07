@@ -1,3 +1,4 @@
+import { sy } from "@/sendy/lib/db";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
@@ -30,8 +31,7 @@ export const reserveAddress = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((d) => reserveSchema.parse(d))
   .handler(async ({ data, context }) => {
-    const { error } = await context.supabase
-      .from("sendy_mailboxes")
+    const { error } = await sy(context.supabase).from("sendy_mailboxes")
       .insert({ user_id: context.userId, local_part: data.localPart, display_name: data.displayName });
     if (error) {
       if (error.code === "23505") return { ok: false as const, error: "Cette adresse est déjà prise." };
@@ -55,6 +55,6 @@ export const sendEmail = createServerFn({ method: "POST" })
     const { sendSendyMail } = await import("./sendy.server");
     const r = await sendSendyMail(context.supabase, context.userId, data);
     if (!r.ok) return { ok: false as const, error: r.error };
-    if (data.draftId) await context.supabase.from("sendy_mail_messages").delete().eq("id", data.draftId);
+    if (data.draftId) await sy(context.supabase).from("sendy_mail_messages").delete().eq("id", data.draftId);
     return { ok: true as const };
   });
