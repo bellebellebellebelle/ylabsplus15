@@ -9,9 +9,9 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-skytab-auth";
-import { runCalculation } from "@/lib/skytab-ai.functions";
-import type { HistoryEntry, SheetResult } from "@/lib/skytab-sheet-types";
-import { Donut, LineChart, UniversalChart } from "@/components/SkytabCharts";
+import { runCalculation } from "@/skytab/lib/skytab-ai.functions";
+import type { HistoryEntry, SheetResult } from "@/skytab/lib/skytab-sheet-types";
+import { Donut, LineChart, UniversalChart } from "@/skytab/components/SkytabCharts";
 
 export const Route = createFileRoute("/skytab/projet/$id")({
   head: () => ({

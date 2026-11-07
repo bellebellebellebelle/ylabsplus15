@@ -5,9 +5,9 @@ import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { DEPARTMENTS, DEPARTMENT_MODULE_DEFAULTS, ODOO_MODULES } from "@/lib/smart-teams/agent-config";
-import { connectOdoo, disconnectOdoo, setDepartmentModules } from "@/lib/smart-teams/odoo.functions";
-import type { CustomDepartment, OdooState } from "@/lib/smart-teams/board-data";
+import { DEPARTMENTS, DEPARTMENT_MODULE_DEFAULTS, ODOO_MODULES } from "@/smartteams/lib/agent-config";
+import { connectOdoo, disconnectOdoo, setDepartmentModules } from "@/smartteams/lib/odoo.functions";
+import type { CustomDepartment, OdooState } from "@/smartteams/lib/board-data";
 import { cn } from "@/lib/utils";
 
 type Props = {

@@ -91,7 +91,7 @@ export const Route = createFileRoute("/api/public/mailgun/mime")({
           for (const f of files) {
             const safe = f.name.replace(/[^\w.\-]+/g, "_").slice(0, 120);
             const path = `${box.user_id}/${msg.id}/${crypto.randomUUID()}-${safe}`;
-            const up = await supabaseAdmin.storage.from("mail-attachments").upload(path, f.data, { contentType: f.type || "application/octet-stream" });
+            const up = await supabaseAdmin.storage.from("sendy-attachments").upload(path, f.data, { contentType: f.type || "application/octet-stream" });
             if (up.error) { console.error("upload failed", up.error); continue; }
             await supabaseAdmin.from("sendy_mail_attachments").insert({
               message_id: msg.id, user_id: box.user_id, filename: f.name, content_type: f.type, size_bytes: f.data.byteLength, storage_path: path,

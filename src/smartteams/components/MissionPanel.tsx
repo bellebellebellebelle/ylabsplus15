@@ -5,8 +5,8 @@ import { Crown, Loader2, Play, Send, Trash2, X, ChevronDown } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { deleteTask, type Agent, type Mission, type Task, type Team } from "@/lib/smart-teams/board-data";
-import { planMission, runTask } from "@/lib/smart-teams/ai.functions";
+import { deleteTask, type Agent, type Mission, type Task, type Team } from "@/smartteams/lib/board-data";
+import { planMission, runTask } from "@/smartteams/lib/ai.functions";
 import { cn } from "@/lib/utils";
 
 type Props = {

@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { formatDateTime } from "@/lib/angelo-format";
+import { formatDateTime } from "@/angelo/lib/angelo-format";
 
 export const Route = createFileRoute("/_authenticated/angelo/journal")({
   head: () => ({

@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { money, formatDateTime, daysOverdue } from "@/lib/angelo-format";
-import { syncNow, runAnalysisNow } from "@/lib/angelo.functions";
+import { money, formatDateTime, daysOverdue } from "@/angelo/lib/angelo-format";
+import { syncNow, runAnalysisNow } from "@/angelo/lib/angelo.functions";
 
 export const Route = createFileRoute("/_authenticated/angelo/tableau-de-bord")({
   head: () => ({

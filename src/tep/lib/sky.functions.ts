@@ -90,7 +90,7 @@ export const skySendStickyEmail = createServerFn({ method: "POST" })
     const { data: s } = await context.supabase.from("tep_stickies").select("*").eq("id", data.stickyId).single();
     if (!s) throw new Error("Post-it introuvable");
     if (!s.email_to) throw new Error("Indiquez un destinataire.");
-    const { sendSendyMail } = await import("@/lib/sendy.server");
+    const { sendSendyMail } = await import("@/sendy/lib/sendy.server");
     const r = await sendSendyMail(context.supabase, context.userId, { to: s.email_to, subject: s.title || "(sans objet)", text: s.content || "" });
     if (!r.ok) throw new Error(r.error);
     await context.supabase.from("tep_stickies").update({ email_sent: true, synced_at: new Date().toISOString() }).eq("id", s.id);

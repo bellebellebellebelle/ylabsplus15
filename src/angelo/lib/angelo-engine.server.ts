@@ -7,7 +7,7 @@ import {
   odooPartnerEmails,
   odooSendReminder,
   type OdooCreds,
-} from "./odoo.server";
+} from "@/lib/odoo.server";
 
 type DB = SupabaseClient<any, "public", any>;
 

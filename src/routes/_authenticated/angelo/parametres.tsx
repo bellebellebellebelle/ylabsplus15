@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { previewReminder, runAnalysisNow } from "@/lib/angelo.functions";
+import { previewReminder, runAnalysisNow } from "@/angelo/lib/angelo.functions";
 
 export const Route = createFileRoute("/_authenticated/angelo/parametres")({
   head: () => ({

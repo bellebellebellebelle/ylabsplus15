@@ -15,9 +15,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { DEPARTMENTS, MODELS, ROLE_SUGGESTIONS, NOTE_BG, LAB_APPS } from "@/lib/smart-teams/agent-config";
-import { deleteAgent, updateAgent, type Agent, type Team } from "@/lib/smart-teams/board-data";
-import { draftAgentPrompt } from "@/lib/smart-teams/ai.functions";
+import { DEPARTMENTS, MODELS, ROLE_SUGGESTIONS, NOTE_BG, LAB_APPS } from "@/smartteams/lib/agent-config";
+import { deleteAgent, updateAgent, type Agent, type Team } from "@/smartteams/lib/board-data";
+import { draftAgentPrompt } from "@/smartteams/lib/ai.functions";
 import { cn } from "@/lib/utils";
 
 type Props = {

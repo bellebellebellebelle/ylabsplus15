@@ -9,7 +9,7 @@ export const Route = createFileRoute("/api/public/shared-file/$token")({
         const headers = new Headers({ "Cache-Control": "no-store, private", "X-Content-Type-Options": "nosniff", "Referrer-Policy": "no-referrer", "Content-Security-Policy": "sandbox; default-src 'none'" });
         if (!access) return new Response("Lien indisponible", { status: 404, headers });
         const { share, supabaseAdmin } = access;
-        const { data, error } = await supabaseAdmin.storage.from("files").download(share.files.storage_path);
+        const { data, error } = await supabaseAdmin.storage.from("skycloud-files").download(share.files.storage_path);
         if (error || !data) return new Response("Fichier indisponible", { status: 404, headers });
         // Recheck after retrieving the object, in case the link was revoked meanwhile.
         if (!await findValidShare(params.token)) return new Response("Lien indisponible", { status: 404, headers });

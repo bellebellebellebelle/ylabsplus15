@@ -47,7 +47,7 @@ export function FileThumb({ f, className = "" }: { f: Tables<"skycloud_files">; 
       if (locked || url) return;
       if (f.encrypted) {
         if (!(isImg || isTxt) || f.size > 15_000_000) return;
-        const { data } = await supabase.storage.from("files").download(f.storage_path);
+        const { data } = await supabase.storage.from("skycloud-files").download(f.storage_path);
         if (!data || off) return;
         const b = await decryptBlob(data, f.mime_type).catch(() => null);
         if (!b || off) return;
@@ -56,12 +56,12 @@ export function FileThumb({ f, className = "" }: { f: Tables<"skycloud_files">; 
         return;
       }
       if (isTxt && f.size < 200_000) {
-        const { data } = await supabase.storage.from("files").download(f.storage_path);
+        const { data } = await supabase.storage.from("skycloud-files").download(f.storage_path);
         if (data && !off) setText((await data.text()).slice(0, 400));
         return;
       }
       if (isImg || isVid || f.mime_type.includes("pdf")) {
-        const { data } = await supabase.storage.from("files").createSignedUrl(f.storage_path, 3600);
+        const { data } = await supabase.storage.from("skycloud-files").createSignedUrl(f.storage_path, 3600);
         if (data && !off) { cache.set(f.id, data.signedUrl); setUrl(data.signedUrl); }
       }
     })();

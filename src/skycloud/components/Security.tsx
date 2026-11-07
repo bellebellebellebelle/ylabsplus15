@@ -81,7 +81,7 @@ export function UnlockDialog({ open, userId, onDone }: { open: boolean; userId: 
         if (error) throw error;
         const file = data?.[0];
         if (file) {
-          const downloaded = await supabase.storage.from("files").download(file.storage_path);
+          const downloaded = await supabase.storage.from("skycloud-files").download(file.storage_path);
           if (downloaded.error || !downloaded.data) throw new Error("Impossible de vérifier le coffre existant.");
           await decryptBlob(downloaded.data, file.mime_type);
         }

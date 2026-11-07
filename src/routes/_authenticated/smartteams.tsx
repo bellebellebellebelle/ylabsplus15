@@ -18,13 +18,13 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { BoardCanvas, type View } from "@/components/smart-teams/BoardCanvas";
-import { AgentNote } from "@/components/smart-teams/AgentNote";
-import { AgentPanel } from "@/components/smart-teams/AgentPanel";
-import { MissionPanel } from "@/components/smart-teams/MissionPanel";
-import { OdooPanel } from "@/components/smart-teams/OdooPanel";
-import { DEPARTMENTS, DEPARTMENT_MAP } from "@/lib/smart-teams/agent-config";
-import { suggestTeam } from "@/lib/smart-teams/ai.functions";
+import { BoardCanvas, type View } from "@/smartteams/components/BoardCanvas";
+import { AgentNote } from "@/smartteams/components/AgentNote";
+import { AgentPanel } from "@/smartteams/components/AgentPanel";
+import { MissionPanel } from "@/smartteams/components/MissionPanel";
+import { OdooPanel } from "@/smartteams/components/OdooPanel";
+import { DEPARTMENTS, DEPARTMENT_MAP } from "@/smartteams/lib/agent-config";
+import { suggestTeam } from "@/smartteams/lib/ai.functions";
 import {
   BOARD_KEY,
   createAgent,
@@ -39,7 +39,7 @@ import {
   type Agent,
   type CustomDepartment,
   type OdooState,
-} from "@/lib/smart-teams/board-data";
+} from "@/smartteams/lib/board-data";
 import { Toaster } from "sonner";
 import { cn } from "@/lib/utils";
 

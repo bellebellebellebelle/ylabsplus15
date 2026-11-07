@@ -10,8 +10,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
-import { money, formatDate, daysOverdue } from "@/lib/angelo-format";
-import { syncNow, sendReminderNow } from "@/lib/angelo.functions";
+import { money, formatDate, daysOverdue } from "@/angelo/lib/angelo-format";
+import { syncNow, sendReminderNow } from "@/angelo/lib/angelo.functions";
 
 export const Route = createFileRoute("/_authenticated/angelo/factures")({
   head: () => ({

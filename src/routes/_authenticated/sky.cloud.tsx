@@ -19,8 +19,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { MfaGate, SecurityDialog, UnlockDialog, useMfaFactors } from "@/components/Security";
-import { FileThumb, FolderIcon } from "@/components/Visuals";
+import { MfaGate, SecurityDialog, UnlockDialog, useMfaFactors } from "@/skycloud/components/Security";
+import { FileThumb, FolderIcon } from "@/skycloud/components/Visuals";
 import { decryptBlob, e2eEnabled, encryptBlob, hasKey } from "@/lib/e2e";
 import icUpload from "@/assets/ic-upload.png";
 import icFolderPlus from "@/assets/ic-folder-plus.png";
@@ -167,11 +167,11 @@ function Dashboard() {
   };
   async function decryptForAi(f: FileRow) {
     if (!(await requireKey())) return;
-    const { data, error } = await supabase.storage.from("files").download(f.storage_path);
+    const { data, error } = await supabase.storage.from("skycloud-files").download(f.storage_path);
     if (error || !data) { toast.error(error?.message ?? "Téléchargement impossible"); return; }
     try {
       const plain = await decryptBlob(data, f.mime_type);
-      const up = await supabase.storage.from("files").upload(f.storage_path, plain, { upsert: true, contentType: f.mime_type || "application/octet-stream" });
+      const up = await supabase.storage.from("skycloud-files").upload(f.storage_path, plain, { upsert: true, contentType: f.mime_type || "application/octet-stream" });
       if (up.error) throw up.error;
       const r = await supabase.from("skycloud_files").update({ encrypted: false }).eq("id", f.id);
       if (r.error) throw r.error;
@@ -194,11 +194,11 @@ function Dashboard() {
         const path = `${uid}/${crypto.randomUUID()}-${f.name.replace(/[^\w.\-]+/g, "_")}${enc ? ".enc" : ""}`;
         try {
           const body = enc ? await encryptBlob(f) : f;
-          const { error } = await supabase.storage.from("files").upload(path, body, { contentType: enc ? "application/octet-stream" : f.type || "application/octet-stream" });
+          const { error } = await supabase.storage.from("skycloud-files").upload(path, body, { contentType: enc ? "application/octet-stream" : f.type || "application/octet-stream" });
           if (error) throw error;
           const saved = await supabase.from("skycloud_files").insert({ name: f.name, storage_path: path, size: f.size, mime_type: f.type || "application/octet-stream", folder_id: folderId, encrypted: enc }).select("id").single();
           if (saved.error || !saved.data) {
-            await supabase.storage.from("files").remove([path]);
+            await supabase.storage.from("skycloud-files").remove([path]);
             throw new Error(saved.error?.message ?? "Fichier non enregistré");
           }
           await log(f.name, "upload");
@@ -246,7 +246,7 @@ function Dashboard() {
     refresh();
   }
   async function destroyFile(f: FileRow) {
-    await supabase.storage.from("files").remove([f.storage_path]);
+    await supabase.storage.from("skycloud-files").remove([f.storage_path]);
     await supabase.from("skycloud_files").delete().eq("id", f.id);
     refresh();
   }
@@ -268,7 +268,7 @@ function Dashboard() {
   async function openFile(f: FileRow, download = false) {
     if (f.encrypted) {
       if (!(await requireKey())) return;
-      const { data, error } = await supabase.storage.from("files").download(f.storage_path);
+      const { data, error } = await supabase.storage.from("skycloud-files").download(f.storage_path);
       if (error || !data) { toast.error(error?.message ?? "Erreur"); return; }
       try {
         const u = URL.createObjectURL(await decryptBlob(data, f.mime_type));
@@ -278,7 +278,7 @@ function Dashboard() {
       } catch (e) { toast.error((e as Error).message); }
       return;
     }
-    const { data, error } = await supabase.storage.from("files").download(f.storage_path);
+    const { data, error } = await supabase.storage.from("skycloud-files").download(f.storage_path);
     if (error || !data) { toast.error(error?.message ?? "Téléchargement impossible"); return; }
     const url = URL.createObjectURL(data);
     if (download) { const a = document.createElement("a"); a.href = url; a.download = f.name; a.click(); }
@@ -353,7 +353,7 @@ function Dashboard() {
     if (!window.confirm(`Analyser « ${f.name} » avec l’IA ? Son contenu lisible sera envoyé au service IA, mais jamais votre phrase secrète ni votre clé.`)) return fail("Analyse annulée : aucun contenu envoyé à l’IA.");
     if (f.size > 10_000_000) return fail(`« ${f.name} » fait ${fmtSize(f.size)} : la lecture est limitée à 10 Mo.`);
     if (f.encrypted && !(await requireKey())) return fail(`« ${f.name} » est chiffré et le coffre est verrouillé.`);
-    const { data, error } = await supabase.storage.from("files").download(f.storage_path);
+    const { data, error } = await supabase.storage.from("skycloud-files").download(f.storage_path);
     if (error || !data) return fail(`Téléchargement de « ${f.name} » impossible : ${error?.message ?? "fichier vide"}.`);
     let blob: Blob = data;
     if (f.encrypted) { try { blob = await decryptBlob(data, f.mime_type); } catch (e) { return fail(`Déchiffrement impossible : ${(e as Error).message}`); } }

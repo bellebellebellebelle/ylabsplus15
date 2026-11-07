@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { CHART_TYPES, CHART_LABELS, type ChartSpec, type ChartType } from "@/lib/skytab-sheet-types";
-import { CHART_COLORS, type SheetResult } from "@/lib/skytab-sheet-types";
+import { CHART_TYPES, CHART_LABELS, type ChartSpec, type ChartType } from "@/skytab/lib/skytab-sheet-types";
+import { CHART_COLORS, type SheetResult } from "@/skytab/lib/skytab-sheet-types";
 
 const fmt = (n: number) =>
   Math.abs(n) >= 1e6

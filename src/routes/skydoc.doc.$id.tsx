@@ -7,9 +7,9 @@ import {
   Shapes, Sparkles, Table, Trash2, Type, Underline, Undo2, Wand2, X,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { runAssistant } from "@/lib/skydoc-ai.functions";
-import { generateDocImage, generateIcons } from "@/lib/skydoc-media.functions";
-import { Sidebar, HoverSidebar } from "@/components/SkydocSidebar";
+import { runAssistant } from "@/skydoc/lib/skydoc-ai.functions";
+import { generateDocImage, generateIcons } from "@/skydoc/lib/skydoc-media.functions";
+import { Sidebar, HoverSidebar } from "@/skydoc/components/SkydocSidebar";
 import { toDocHtml } from "@/lib/markdown-to-html";
 
 export const Route = createFileRoute("/skydoc/doc/$id")({

@@ -140,7 +140,7 @@ const appActions: Record<string, Record<string, Action>> = {
         if (f.encrypted) throw new Error(`« ${f.name} » est chiffré de bout en bout : l'agent ne peut pas le lire. Dans SKY CLOUD, utilisez « Rendre lisible par les agents » sur ce fichier, ou rendez son dossier compatible Agents & IA.`);
         const { MAX_AUDIO_BYTES, transcribeAudio, analyzeTranscript, toRow } = await import("./analyze.server");
         if (f.size > MAX_AUDIO_BYTES) throw new Error("Fichier audio trop volumineux (max 14 Mo).");
-        const { data: blob, error: de } = await db.storage.from("files").download(f.storage_path);
+        const { data: blob, error: de } = await db.storage.from("skycloud-files").download(f.storage_path);
         if (de || !blob) throw new Error("Téléchargement du fichier impossible.");
         const key = process.env.LOVABLE_API_KEY;
         if (!key) throw new Error("LOVABLE_API_KEY manquant");
