@@ -41,7 +41,7 @@ export const Route = createFileRoute("/api/public/hooks/angelo-cron")({
     handlers: {
       POST: async ({ request }) => {
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-        const { runAnalysis } = await import("@/lib/angelo-engine.server");
+        const { runAnalysis } = await import("@/angelo/lib/angelo-engine.server");
 
         const provided = /^Bearer ([^\s,]+)$/.exec(request.headers.get("authorization") ?? "")?.[1];
         const { data: tokenRow } = await supabaseAdmin

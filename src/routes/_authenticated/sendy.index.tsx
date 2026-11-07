@@ -10,10 +10,10 @@ import { format, isToday, isYesterday, subDays } from "date-fns";
 import { fr } from "date-fns/locale";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables } from "@/integrations/supabase/types";
-import { Sidebar, type FolderKey, FOLDERS } from "@/components/mail/Sidebar";
-import { AddressPicker } from "@/components/mail/AddressPicker";
-import { Compose, type ComposeInit } from "@/components/mail/Compose";
-import { useMailbox, useMailConfig } from "@/components/mail/use-mailbox";
+import { Sidebar, type FolderKey, FOLDERS } from "@/sendy/components/Sidebar";
+import { AddressPicker } from "@/sendy/components/AddressPicker";
+import { Compose, type ComposeInit } from "@/sendy/components/Compose";
+import { useMailbox, useMailConfig } from "@/sendy/components/use-mailbox";
 import { cn } from "@/lib/utils";
 
 type Msg = Tables<"sendy_mail_messages">;
@@ -266,7 +266,7 @@ function Reader({ m, onUpdate, onReply }: { m: Msg; onUpdate: (id: string, p: Pa
   });
   const points = summarize(m.body_text ?? "");
   const download = async (path: string, name: string) => {
-    const { data } = await supabase.storage.from("mail-attachments").createSignedUrl(path, 60, { download: name });
+    const { data } = await supabase.storage.from("sendy-attachments").createSignedUrl(path, 60, { download: name });
     if (data?.signedUrl) window.open(data.signedUrl, "_blank");
   };
   const tool = "rounded-lg p-2 text-muted-foreground transition hover:bg-muted hover:text-foreground";

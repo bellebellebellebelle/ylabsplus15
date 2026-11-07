@@ -140,7 +140,7 @@ const appActions: Record<string, Record<string, Action>> = {
         if (f.encrypted) throw new Error(`« ${f.name} » est chiffré de bout en bout : l'agent ne peut pas le lire. Dans SKY CLOUD, utilisez « Rendre lisible par les agents » sur ce fichier, ou rendez son dossier compatible Agents & IA.`);
         const { MAX_AUDIO_BYTES, transcribeAudio, analyzeTranscript, toRow } = await import("./analyze.server");
         if (f.size > MAX_AUDIO_BYTES) throw new Error("Fichier audio trop volumineux (max 14 Mo).");
-        const { data: blob, error: de } = await db.storage.from("files").download(f.storage_path);
+        const { data: blob, error: de } = await db.storage.from("skycloud-files").download(f.storage_path);
         if (de || !blob) throw new Error("Téléchargement du fichier impossible.");
         const key = process.env.LOVABLE_API_KEY;
         if (!key) throw new Error("LOVABLE_API_KEY manquant");
@@ -187,7 +187,7 @@ const appActions: Record<string, Record<string, Action>> = {
       run: async ({ db, userId, attachments }, i) => {
         const file = attachments?.[i.attachment_index];
         if (!file) throw new Error("Pièce jointe introuvable.");
-        const engine = await import("./angelo-engine.server");
+        const engine = await import("@/angelo/lib/angelo-engine.server");
         const { odooAuthenticate, odooExecute } = await import("./odoo.server");
         const creds = await engine.loadConnection(db, userId);
         const uid = await odooAuthenticate(creds);
@@ -206,14 +206,14 @@ const appActions: Record<string, Record<string, Action>> = {
     synchroniser: {
       description: "Synchroniser les factures depuis Odoo.",
       input: z.object({}),
-      run: async ({ db, userId }) => (await import("./angelo-engine.server")).syncInvoices(db, userId),
+      run: async ({ db, userId }) => (await import("@/angelo/lib/angelo-engine.server")).syncInvoices(db, userId),
     },
     lancer_analyse: {
       description: "Lancer l'analyse complète : synchronisation puis relances automatiques selon les règles.",
       input: z.object({ confirmed: z.boolean() }),
       run: async ({ db, userId }, i) => {
         if (!i.confirmed) return "Demande d'abord une confirmation orale explicite.";
-        return (await import("./angelo-engine.server")).runAnalysis(db, userId, "manual");
+        return (await import("@/angelo/lib/angelo-engine.server")).runAnalysis(db, userId, "manual");
       },
     },
     envoyer_relance: {
@@ -221,7 +221,7 @@ const appActions: Record<string, Record<string, Action>> = {
       input: z.object({ odoo_id: z.number(), confirmed: z.boolean() }),
       run: async ({ db, userId }, i) => {
         if (!i.confirmed) return "Demande d'abord une confirmation orale explicite.";
-        const engine = await import("./angelo-engine.server");
+        const engine = await import("@/angelo/lib/angelo-engine.server");
         const { odooAuthenticate } = await import("./odoo.server");
         const creds = await engine.loadConnection(db, userId);
         const uid = await odooAuthenticate(creds);

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Crown, Cpu, GripVertical, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
-import type { Agent, Task } from "@/lib/smart-teams/board-data";
-import { NOTE_BG, MODELS } from "@/lib/smart-teams/agent-config";
+import type { Agent, Task } from "@/smartteams/lib/board-data";
+import { NOTE_BG, MODELS } from "@/smartteams/lib/agent-config";
 import { cn } from "@/lib/utils";
 
 type Props = {

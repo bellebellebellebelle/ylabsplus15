@@ -7,7 +7,7 @@ import {
   odooPartnerEmails,
   odooSendReminder,
   type OdooCreds,
-} from "./odoo.server";
+} from "@/lib/odoo.server";
 
 type DB = SupabaseClient<any, "public", any>;
 
@@ -212,7 +212,7 @@ export async function sendReminderForInvoice(
   invoice: InvoiceRow,
   overdue: number,
 ) {
-  const { resolveAppAiModel } = await import("./ai-models.server");
+  const { resolveAppAiModel } = await import("@/lib/ai-models.server");
   const { subject, body } = await composeReminder(settings, rule, invoice, overdue, await resolveAppAiModel(db, userId, "angelo"));
   const html = buildHtmlBody(body, settings);
 

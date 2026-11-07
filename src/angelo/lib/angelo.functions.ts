@@ -20,7 +20,7 @@ export const testAndSaveOdooConnection = createServerFn({ method: "POST" })
     return input;
   })
   .handler(async ({ data, context }) => {
-    const { odooAuthenticate, odooCheckModules } = await import("./odoo.server");
+    const { odooAuthenticate, odooCheckModules } = await import("@/lib/odoo.server");
     const { supabase, userId } = context;
 
     const creds = {
@@ -123,7 +123,7 @@ export const previewReminder = createServerFn({ method: "POST" })
       instructions: "",
     };
 
-    const { resolveAppAiModel } = await import("./ai-models.server");
+    const { resolveAppAiModel } = await import("@/lib/ai-models.server");
     return await composeReminder(settings, rule, invoice, overdue, await resolveAppAiModel(supabase, userId, "angelo"));
   });
 
@@ -135,7 +135,7 @@ export const sendReminderNow = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }) => {
     const engine = await import("./angelo-engine.server");
-    const { odooAuthenticate } = await import("./odoo.server");
+    const { odooAuthenticate } = await import("@/lib/odoo.server");
     const { supabase, userId } = context;
 
     const creds = await engine.loadConnection(supabase, userId);

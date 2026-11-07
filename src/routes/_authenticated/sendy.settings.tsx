@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Check, Copy, X } from "lucide-react";
-import { useMailbox, useMailConfig } from "@/components/mail/use-mailbox";
+import { useMailbox, useMailConfig } from "@/sendy/components/use-mailbox";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/sendy/settings")({

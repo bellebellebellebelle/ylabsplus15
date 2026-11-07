@@ -2,7 +2,7 @@ import { createFileRoute, Link, redirect, useNavigate } from "@tanstack/react-ro
 import { useState } from "react";
 import { ArrowUp, FileText, Plus, Trash2, Wand2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { Sidebar, HoverSidebar, useDocs, createDoc } from "@/components/SkydocSidebar";
+import { Sidebar, HoverSidebar, useDocs, createDoc } from "@/skydoc/components/SkydocSidebar";
 
 export const Route = createFileRoute("/skydoc/dashboard")({
   ssr: false,
