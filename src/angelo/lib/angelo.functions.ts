@@ -1,3 +1,4 @@
+import { ang } from "@/angelo/lib/db";
 import { createServerFn } from "@tanstack/react-start";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
@@ -86,15 +87,14 @@ export const previewReminder = createServerFn({ method: "POST" })
     const { supabase, userId } = context;
 
     const [{ data: settings }, { data: rules }] = await Promise.all([
-      supabase.from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
-      supabase.from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
+      ang(supabase).from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
+      ang(supabase).from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
     ]);
     if (!settings) throw new Error("Paramètres introuvables.");
 
     let invoice: Record<string, unknown> | null = null;
     if (data.odooId) {
-      const { data: row } = await supabase
-        .from("angelo_invoices_cache")
+      const { data: row } = await ang(supabase).from("angelo_invoices_cache")
         .select("*")
         .eq("user_id", userId)
         .eq("odoo_id", data.odooId)
@@ -142,10 +142,9 @@ export const sendReminderNow = createServerFn({ method: "POST" })
     const uid = await odooAuthenticate(creds);
 
     const [{ data: settings }, { data: rules }, { data: invoice }] = await Promise.all([
-      supabase.from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
-      supabase.from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
-      supabase
-        .from("angelo_invoices_cache")
+      ang(supabase).from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
+      ang(supabase).from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
+      ang(supabase).from("angelo_invoices_cache")
         .select("*")
         .eq("user_id", userId)
         .eq("odoo_id", data.odooId)

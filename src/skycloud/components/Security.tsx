@@ -1,3 +1,4 @@
+import { sc } from "@/skycloud/lib/db";
 import { useEffect, useState } from "react";
 import { KeyRound, Lock, LogOut, ShieldCheck, Smartphone } from "lucide-react";
 import { toast } from "sonner";
@@ -77,7 +78,7 @@ export function UnlockDialog({ open, userId, onDone }: { open: boolean; userId: 
       await unlock(p, userId);
       if (!known) {
         // Existing vaults must be verified against actual ciphertext before saving a verifier.
-        const { data, error } = await supabase.from("skycloud_files").select("storage_path, mime_type").eq("encrypted", true).limit(1);
+        const { data, error } = await sc(supabase).from("skycloud_files").select("storage_path, mime_type").eq("encrypted", true).limit(1);
         if (error) throw error;
         const file = data?.[0];
         if (file) {

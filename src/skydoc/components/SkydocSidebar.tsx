@@ -1,3 +1,4 @@
+import { sd } from "@/skydoc/lib/db";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Bot, ChevronDown, FileText, Folder, Home, Library, LayoutTemplate, LogOut, Plus, Search } from "lucide-react";
@@ -9,7 +10,7 @@ export function useDocs() {
   const [docs, setDocs] = useState<DocRow[]>([]);
   useEffect(() => {
     const load = () =>
-      supabase.from("skydoc_documents").select("id,title,updated_at,status,version").order("updated_at", { ascending: false }).then(({ data }) => setDocs(data ?? []));
+      sd(supabase).from("skydoc_documents").select("id,title,updated_at,status,version").order("updated_at", { ascending: false }).then(({ data }) => setDocs(data ?? []));
     load();
     const ch = supabase
       .channel(`docs-${Math.random().toString(36).slice(2)}`)
@@ -21,7 +22,7 @@ export function useDocs() {
 }
 
 export async function createDoc(title = "Nouveau document") {
-  const { data, error } = await supabase.from("skydoc_documents").insert({ title }).select("id").single();
+  const { data, error } = await sd(supabase).from("skydoc_documents").insert({ title }).select("id").single();
   if (error) throw error;
   return data.id as string;
 }

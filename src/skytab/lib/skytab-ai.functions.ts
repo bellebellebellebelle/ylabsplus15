@@ -1,3 +1,4 @@
+import { stab } from "@/skytab/lib/db";
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
@@ -41,8 +42,7 @@ export const runCalculation = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }) => {
     const { supabase } = context;
-    const { data: project, error } = await supabase
-      .from("skytab_sheets")
+    const { data: project, error } = await stab(supabase).from("skytab_sheets")
       .select("*")
       .eq("id", data.projectId)
       .single();
@@ -91,7 +91,7 @@ export const runCalculation = createServerFn({ method: "POST" })
       updated_at: new Date().toISOString(),
     };
     if (all.length === 0 && String((project as Record<string, unknown>)["name"]) === "Nouveau projet") update["name"] = parsed.title;
-    const { error: upErr } = await supabase.from("skytab_sheets").update(update as never).eq("id", data.projectId);
+    const { error: upErr } = await stab(supabase).from("skytab_sheets").update(update as never).eq("id", data.projectId);
     if (upErr) throw new Error(upErr.message);
     return entry;
   });

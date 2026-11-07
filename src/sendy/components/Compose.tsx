@@ -1,3 +1,4 @@
+import { sy } from "@/sendy/lib/db";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
@@ -34,8 +35,8 @@ export function Compose({ open, onOpenChange, init, from }: { open: boolean; onO
     if (!u.user) return;
     const row = { user_id: u.user.id, folder: "drafts", from_address: from, to_addresses: to, subject, body_text: text, is_read: true };
     const { error } = init.draftId
-      ? await supabase.from("sendy_mail_messages").update(row).eq("id", init.draftId)
-      : await supabase.from("sendy_mail_messages").insert(row);
+      ? await sy(supabase).from("sendy_mail_messages").update(row).eq("id", init.draftId)
+      : await sy(supabase).from("sendy_mail_messages").insert(row);
     if (error) toast.error(error.message); else { toast.success("Brouillon enregistré"); onOpenChange(false); }
   }
 

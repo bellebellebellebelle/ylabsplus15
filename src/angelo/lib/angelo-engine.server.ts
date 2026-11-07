@@ -1,3 +1,4 @@
+import { ang } from "@/angelo/lib/db";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 import {
@@ -64,8 +65,7 @@ export async function syncInvoices(db: DB, userId: string) {
   }));
 
   if (rows.length > 0) {
-    const { error } = await db
-      .from("angelo_invoices_cache")
+    const { error } = await ang(db).from("angelo_invoices_cache")
       .upsert(rows, { onConflict: "user_id,odoo_id" });
     if (error) throw new Error(error.message);
   }
@@ -73,13 +73,12 @@ export async function syncInvoices(db: DB, userId: string) {
   // Retire du cache les factures désormais soldées côté Odoo.
   const keptIds = rows.map((r) => r.odoo_id);
   if (keptIds.length > 0) {
-    await db
-      .from("angelo_invoices_cache")
+    await ang(db).from("angelo_invoices_cache")
       .delete()
       .eq("user_id", userId)
       .not("odoo_id", "in", `(${keptIds.join(",")})`);
   } else {
-    await db.from("angelo_invoices_cache").delete().eq("user_id", userId);
+    await ang(db).from("angelo_invoices_cache").delete().eq("user_id", userId);
   }
 
   const overdue = rows.filter((r) => daysOverdue(r.due_date) > 0).length;
@@ -228,7 +227,7 @@ export async function sendReminderForInvoice(
     );
   } catch (e) {
     const message = e instanceof Error ? e.message : "Échec de l'envoi";
-    await db.from("angelo_reminder_logs").insert({
+    await ang(db).from("angelo_reminder_logs").insert({
       user_id: userId,
       invoice_odoo_id: invoice.odoo_id,
       invoice_name: invoice.name,
@@ -245,7 +244,7 @@ export async function sendReminderForInvoice(
     throw new Error(message);
   }
 
-  await db.from("angelo_reminder_logs").insert({
+  await ang(db).from("angelo_reminder_logs").insert({
     user_id: userId,
     invoice_odoo_id: invoice.odoo_id,
     invoice_name: invoice.name,
@@ -259,8 +258,7 @@ export async function sendReminderForInvoice(
     status: "sent",
   });
 
-  await db
-    .from("angelo_invoices_cache")
+  await ang(db).from("angelo_invoices_cache")
     .update({
       reminder_count: (invoice.reminder_count ?? 0) + 1,
       last_reminder_at: new Date().toISOString(),
@@ -274,8 +272,7 @@ export async function sendReminderForInvoice(
 
 /** Analyse complète : synchronisation + relances automatiques. */
 export async function runAnalysis(db: DB, userId: string, trigger: "manual" | "cron") {
-  const { data: run } = await db
-    .from("angelo_run_logs")
+  const { data: run } = await ang(db).from("angelo_run_logs")
     .insert({ user_id: userId, trigger, status: "running" })
     .select("id")
     .single();
@@ -286,9 +283,9 @@ export async function runAnalysis(db: DB, userId: string, trigger: "manual" | "c
     const sync = await syncInvoices(db, userId);
 
     const [{ data: settings }, { data: rules }, { data: invoices }] = await Promise.all([
-      db.from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
-      db.from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
-      db.from("angelo_invoices_cache").select("*").eq("user_id", userId),
+      ang(db).from("angelo_settings").select("*").eq("user_id", userId).maybeSingle(),
+      ang(db).from("angelo_reminder_rules").select("*").eq("user_id", userId).order("days_overdue"),
+      ang(db).from("angelo_invoices_cache").select("*").eq("user_id", userId),
     ]);
 
     if (!settings) throw new Error("Paramètres ANGELO introuvables.");
@@ -331,8 +328,7 @@ export async function runAnalysis(db: DB, userId: string, trigger: "manual" | "c
     }
 
     if (runId) {
-      await db
-        .from("angelo_run_logs")
+      await ang(db).from("angelo_run_logs")
         .update({
           status: errors.length > 0 ? "partial" : "success",
           invoices_found: sync.total,
@@ -348,8 +344,7 @@ export async function runAnalysis(db: DB, userId: string, trigger: "manual" | "c
   } catch (e) {
     const message = e instanceof Error ? e.message : "Erreur inconnue";
     if (runId) {
-      await db
-        .from("angelo_run_logs")
+      await ang(db).from("angelo_run_logs")
         .update({ status: "error", message, finished_at: new Date().toISOString() })
         .eq("id", runId);
     }
