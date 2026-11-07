@@ -1,3 +1,4 @@
+import { SmartTeamsFiles } from "@/smartteams/components/SmartTeamsFiles";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -263,6 +264,7 @@ function BoardPage() {
   return (
     <div className="st-theme flex h-screen w-full overflow-hidden bg-background">
       <Toaster theme="dark" />
+      <SmartTeamsFiles />
       <aside
         className={cn(
           "scroll-slim z-20 flex h-full shrink-0 flex-col overflow-y-auto border-r border-border st-panel transition-all",

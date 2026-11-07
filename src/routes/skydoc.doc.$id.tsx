@@ -1,3 +1,4 @@
+import { SkydocFiles } from "@/skydoc/components/SkydocFiles";
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
@@ -467,6 +468,7 @@ function Workspace() {
   return (
     <div className="skydoc flex h-screen gap-3 overflow-hidden p-3">
       <HoverSidebar activeId={id} />
+      <SkydocFiles scope={`docs/${id}`} />
 
       {/* Right edge hot-zone for the assistant */}
       {!chatOpen && <div onMouseEnter={() => setChatOpen(true)} className="fixed inset-y-0 right-0 z-40 hidden w-4 lg:block" />}
